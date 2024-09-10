@@ -1,0 +1,78 @@
+#######################################
+# Syntax Coloring Map For ADS1115_WE
+#######################################
+
+# Channels
+#######################################
+DIFFchannel	KEYWORD1
+diff1	KEYWORD1
+diff2	KEYWORD1
+diff3	KEYWORD1
+diff4	KEYWORD1
+diff5	KEYWORD1
+diff6	KEYWORD1
+phase1	KEYWORD1
+phase2	KEYWORD1
+phase3	KEYWORD1
+
+
+
+# Methods
+#######################################
+init_dl	KEYWORD1
+get_continuous_sample	KEYWORD1
+add_to_log	KEYWORD1
+to_log_content	KEYWORD1
+samples_to_take	KEYWORD1
+
+calculate_Irms	KEYWORD1
+calculate_Vrms	KEYWORD1
+calculate_Prms	KEYWORD1
+calculate_Preal	KEYWORD1
+calculate_PF	KEYWORD1
+calculate_f_Hz	KEYWORD1
+calculate_Imean	KEYWORD1
+calculate_Imax	KEYWORD1
+calculate_Imin	KEYWORD1
+calculate_Vmean	KEYWORD1
+calculate_Vmax	KEYWORD1
+calculate_Vmin	KEYWORD1
+calculate_Pmean	KEYWORD1
+
+mean_sample_unit	KEYWORD1
+rms_sample_unit	KEYWORD1
+min_sample_unit	KEYWORD1
+max_sample_unit	KEYWORD1
+
+
+
+# Parameters
+#######################################
+gain	KEYWORD2
+offset_unit	KEYWORD2
+board	KEYWORD2
+mult_factor	KEYWORD2
+channel	KEYWORD2
+
+mVPerCount	KEYWORD2
+sample_count	KEYWORD2
+sample_sum	KEYWORD2
+sample_last	KEYWORD2
+sample_min	KEYWORD2
+sample_max	KEYWORD2
+sample_sqsum	KEYWORD2
+sqsum_divider	KEYWORD2
+change_of_sign	KEYWORD2
+
+realpower_value	KEYWORD2
+realpower_sum	KEYWORD2
+realpower_min	KEYWORD2
+realpower_max	KEYWORD2
+realpower_count	KEYWORD2
+sampling_time_sum_s	KEYWORD2
+sum_deltat_first_last_cycle_s	KEYWORD2
+change_of_sign	KEYWORD2
+
+TIMESERIES	KEYWORD2
+JSON	KEYWORD2
+
