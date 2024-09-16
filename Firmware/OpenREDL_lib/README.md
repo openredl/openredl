@@ -14,4 +14,4 @@ https://github.com/openredl/openredl
 
 
 # OpenReDLlib Library
-Author: adjim - University of Oldenburg
+Author: adjim - PPRE, Energy Technology, University of Oldenburg
