@@ -4,7 +4,7 @@
 Created on Tue Jul 30 10:53:35 2024
 @author: aj
 """
-from openredl_utils import *
+from pyopenredl.logutils import *
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 

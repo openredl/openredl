@@ -1,4 +1,4 @@
-import openredl_realtimeplotutils as rtp
+import pyopenredl.realtimeplotutils as rtp
 
 ##########################################################################
 # CONFIGURATION PARAMETERS
@@ -32,12 +32,12 @@ columns_to_plot = [
    #[2, "P1real[W]"], # example with y_axis as column number and as column_name
    #[{"x":2,"y":[2,"P1real[W]"]}], # example with other column as x _axis
    #[{"x":2,"y":[3], "linestyle":"none"}], # example with extra plot kwd,
-   [1],
-   [2],
-   [3],
-   [4],
-   [5],
-   [6],
+    [1],
+    [2],
+    [3],
+    [4],
+    [5],
+    [6],
                    ]
 ##########################################################################
 
