@@ -69,8 +69,8 @@ You should not open the data file while the script is running, as it is continuo
 The data received is printed in the terminal where the script is executed, and can be read directly.
 
 (Optional Interaction)
-If you want to:
-O6. **add a note to the log file** just write it in the textbox and type <enter>.
+If you want to:<br/>
+O6. **add a note to the log file** just write it in the textbox and type <enter>.<br/>
 O7. **restart** the plot as a new one, press the datalogger restart button.
 
 
