@@ -14,7 +14,7 @@ https://github.com/conda-forge/miniforge
 
 Download **Miniforge3** and execute the file for your operating system.
 In windows, just run the exe file.
-In linux or mac, open a Terminal and run:
+In linux or mac, open a Terminal and run
     ```console
     $ wget "https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-$(uname)-$(uname -m).sh
     $ bash Miniforge3-$(uname)-$(uname -m).sh
