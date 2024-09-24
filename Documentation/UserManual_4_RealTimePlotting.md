@@ -12,7 +12,7 @@ If you do not have it, you can do it, for example, installing miniforge:
 
 https://conda-forge.org/miniforge/
 
-Download and execute the file for your operating system.
+Download **Miniforge3** and execute the file for your operating system.
 In windows, just run the exe file.
 In linux or mac, open a Terminal and run:
     ```console<br/>
