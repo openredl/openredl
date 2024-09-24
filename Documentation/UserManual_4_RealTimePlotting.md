@@ -15,10 +15,10 @@ https://conda-forge.org/miniforge/
 Download and execute the file for your operating system.
 In windows, just run the exe file.
 In linux or mac, open a Terminal and run:
-    ```console
-    $ chmod +x ~Downloads/[TheDownloadedMiniforgefile].sh
-    $ sh ~Downloads/[TheDownloadedMiniforgefile].sh
-    $ source ~/miniforge/bin/activate
+    ```console<br/>
+    $ chmod +x ~Downloads/[TheDownloadedMiniforgefile].sh<br/>
+    $ sh ~Downloads/[TheDownloadedMiniforgefile].sh<br/>
+    $ source ~/miniforge/bin/activate<br/>
     ```
 
 
@@ -34,13 +34,14 @@ You can do it with any prefered method. The steps using Anaconda / Miniconda Ter
     ```console
     $ conda activate openredl-env
     ```
-4. Open the script file and go to the bottom. Configure it as required:
-    - datalogger port name (Find the port name in Arduino IDE > Tools > Port)
-    - unit = which unit should be used to select data to plot, "points" or "seconds". 
-    - amount = how many units should be kept in the plot.
-    - seconds to plot (e.g. 10 minutes = 10*60)
-    - columns to plot
-    - **save the file**
+5. Install the tools library pyopenredl
+    Go to the Tools folder:
+   ```console
+    $ cd .\openredl\Tools\
+    $ python -m pip install -e ./pyopenredl/
+    
+
+4. Open the script file **real_time_plot.py** and configure it as required. After modifying it, **save the file**!
     
 As seen in the script:
 
@@ -74,19 +75,15 @@ As seen in the script:
        #[{"x":2,"y":[2,"P1real[W]"]}], # example with other column as x _axis
        #[{"x":2,"y":[3], "linestyle":"none"}], # example with extra plot kwd,
 ```
-5. Install the tools library pyopenredl
-    Go to the Tools folder:
-   ```console
-    $ cd .\openredl\Tools\
-    $ python -m pip install -e ./pyopenredl/
+
     
-6. Execute the script in Anaconda Powershell.
+6. Execute the script in Terminal or e.g. Anaconda Powershell.
     Go to the folder where the plot script is stored:
     ```console
     $ cd .\openredl\Tools\
     $ python real_time_plot.py
     ```
-You should not open the data file while the script is running, as it is continuously being updated.
+A file called _data.csv_ will be stored with the data read from the DL. You should not open it while running the script, as it is continuously being updated.
 The data received is printed in the terminal where the script is executed, and can be read directly.
 
 (Optional Interaction)
