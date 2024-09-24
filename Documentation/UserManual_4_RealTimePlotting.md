@@ -6,25 +6,25 @@ In order to plot, the data should be in a TIMESERIES format.
 
 ### 4.1 How to use it?
 
-#### Installin Python
+#### Install in Python
 To use the real time plotting script, you need to be able to run python.
 If you do not have it, you can do it, for example, installing miniforge:
 
-https://conda-forge.org/miniforge/
+https://github.com/conda-forge/miniforge
 
 Download **Miniforge3** and execute the file for your operating system.
 In windows, just run the exe file.
 In linux or mac, open a Terminal and run:
     ```console<br/>
-    $ chmod +x ~Downloads/[TheDownloadedMiniforgefile].sh<br/>
-    $ sh ~Downloads/[TheDownloadedMiniforgefile].sh<br/>
-    $ source ~/miniforge/bin/activate<br/>
+    "
+    $ wget "https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-$(uname)-$(uname -m).sh<br/>
+    $ bash Miniforge3-$(uname)-$(uname -m).sh<br/>
     ```
 
 
 #### 4.2 Create a Python environment
-You can do it with any prefered method. The steps using Anaconda / Miniconda Terminal are:
-1. Open a command line environment in which Conda instructions run e.g. Open Anaconda Powershell
+You can do it with any prefered method. The steps using Miniforge Prompt or Terminal are:
+1. Open a command line environment in which Conda instructions run e.g. Miniforge Prompt or Terminal
 2. Create a new Python environment with the required libraries.
     Format: [conda create -n] [environment_name] [library1] [library2] …
     ```console
