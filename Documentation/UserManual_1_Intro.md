@@ -65,6 +65,6 @@ A simple option to see the measurements in real time is to use the Arduino IDE S
  - 5. In the Serial Monitor bottom right select 115200 Baud
 
 ###### With the Python Script
-A Python script (or any other programming language) can read the serial port and plot it. In the Operation folder you can find a specially made script called real_time_plot.py. For details on how to use and configure it see [4. Real-Time Plotting](UserManual_4_RealTimePlotting.md).
+A Python script (or any other programming language) can read the serial port and plot it. In the Tools folder you can find a specially made script called real_time_plot.py. For details on how to use and configure it see [4. Real-Time Plotting](UserManual_4_RealTimePlotting.md).
 
 
