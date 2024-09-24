@@ -62,7 +62,7 @@ As seen in the script:
 5. Execute the script in Anaconda Powershell.
     Go to the folder where the plot script is stored:
     ```console
-    $ cd Documents\winterlab\openredl
+    $ cd .\openredl\Tools\
     $ python real_time_plot.py
     ```
 You should not open the data file while the script is running, as it is continuously being updated.
