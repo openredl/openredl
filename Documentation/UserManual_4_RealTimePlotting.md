@@ -33,14 +33,14 @@ You can do it with any prefered method. The steps using Miniforge Prompt or Term
     ```console
     $ conda activate openredl-env
     ```
-5. Install the tools library pyopenredl
+4. Install the tools library pyopenredl.
     Go to the Tools folder:
    ```console
     $ cd .\openredl\Tools\
     $ python -m pip install -e ./pyopenredl/
-    
+    ```
 
-4. Open the script file **real_time_plot.py** and configure it as required. After modifying it, **save the file**!
+5. Open the script file **real_time_plot.py** and configure it as required. After modifying it, **save the file**!
     
 As seen in the script:
 
