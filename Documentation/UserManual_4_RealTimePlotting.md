@@ -92,10 +92,13 @@ O8. **restart** the plot as a new one, press the datalogger restart button.
 
 
 #### 4.3 Other Useful Instructions
-To remove an Anaconda environment run:<br/>
+To remove an (Ana)Conda environment run:<br/>
     ```console
     $ conda env remove -n [env-name]
     ```
 
-
+To see excisting an (Ana)Conda environment run:<br/>
+    ```console
+    $ conda env list
+    ```
 
