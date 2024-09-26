@@ -6,25 +6,18 @@ In order to plot, the data should be in a TIMESERIES format.
 
 ### 4.1 How to use it?
 
-#### Installin Python
+#### Install in Python
 To use the real time plotting script, you need to be able to run python.
 If you do not have it, you can do it, for example, installing miniforge:
 
-https://conda-forge.org/miniforge/
+https://github.com/conda-forge/miniforge
 
-Download and execute the file for your operating system.
-In windows, just run the exe file.
-In linux or mac, open a Terminal and run:
-    ```console<br/>
-    $ chmod +x ~Downloads/[TheDownloadedMiniforgefile].sh<br/>
-    $ sh ~Downloads/[TheDownloadedMiniforgefile].sh<br/>
-    $ source ~/miniforge/bin/activate<br/>
-    ```
+Download the **Miniforge3** for your operating system and follow the installing instructions.
 
 
 #### 4.2 Create a Python environment
-You can do it with any prefered method. The steps using Anaconda / Miniconda Terminal are:
-1. Open a command line environment in which Conda instructions run e.g. Open Anaconda Powershell
+You can do it with any prefered method. The steps using Miniforge Prompt or Terminal are:
+1. Open a command line environment in which Conda instructions run e.g. Miniforge Prompt or Terminal
 2. Create a new Python environment with the required libraries.
     Format: [conda create -n] [environment_name] [library1] [library2] …
     ```console
@@ -34,14 +27,14 @@ You can do it with any prefered method. The steps using Anaconda / Miniconda Ter
     ```console
     $ conda activate openredl-env
     ```
-5. Install the tools library pyopenredl
+4. Install the tools library pyopenredl.
     Go to the Tools folder:
    ```console
     $ cd .\openredl\Tools\
     $ python -m pip install -e ./pyopenredl/
-    
+    ```
 
-4. Open the script file **real_time_plot.py** and configure it as required. After modifying it, **save the file**!
+5. Open the script file **real_time_plot.py** and configure it as required. After modifying it, **save the file**!
     
 As seen in the script:
 
@@ -93,10 +86,13 @@ O8. **restart** the plot as a new one, press the datalogger restart button.
 
 
 #### 4.3 Other Useful Instructions
-To remove an Anaconda environment run:<br/>
+To remove an (Ana)Conda environment run:<br/>
     ```console
     $ conda env remove -n [env-name]
     ```
 
-
+To see excisting an (Ana)Conda environment run:<br/>
+    ```console
+    $ conda env list
+    ```
 
