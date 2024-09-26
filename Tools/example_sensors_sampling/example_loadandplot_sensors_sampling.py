@@ -14,7 +14,7 @@ if __name__ == "__main__":
     ##############################################################################
     ## Files to read
     # (with the format [file_marker]YYMMDD[file_extension], e.g. M240726.TXT)
-    dir_path = "example_sensors_sampling/ArduinoDL/"
+    dir_path = "ArduinoDL/"
     file_extention = ".TXT"
     file_marker = "M"
 
@@ -54,7 +54,7 @@ if __name__ == "__main__":
     
     ###########################################################################    
     # Reading log files from Campbell1000
-    file_path = "example_sensors_sampling/Campbell1000/CR1000_2_Table_10s.dat"
+    file_path = "Campbell1000/CR1000_2_Table_10s.dat"
     df2 = pd.read_csv(file_path,
                   index_col = 0,
                   parse_dates = True,
