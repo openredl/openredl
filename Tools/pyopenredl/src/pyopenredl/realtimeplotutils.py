@@ -36,6 +36,7 @@ class SerialDL:
         self.share_x = self.check_share_x()
         self.stop = False
         self.filename = 'data.csv'
+        self.headers_filename = "headers.csv"
         self.ani = None
         print(f'\n{"#"*65}\n{"#"*20} Datalogger Plotting Started! {"#"*20}\n{"#"*65}')
 
@@ -110,6 +111,12 @@ class SerialDL:
                     print(string.replace('H,', "").replace('\n','').replace(',',' '))
                     with open(self.filename, "a") as f:
                         f.write(string)
+                    with open(self.headers_filename, "a") as f:
+                        current_dt = datetime.datetime.now().strftime('%Y/%m/%d %H:%M:%S')
+                        cols_list = string.replace("\n", "").split(",")
+                        cols_list.pop(0) # droping H column
+                        f.write(f"{current_dt},{str(cols_list)}\n")    
+
                 else: 
                      print(string.replace('\r','').replace('\n',''))
                      #with open(self.filename, "a") as f:
