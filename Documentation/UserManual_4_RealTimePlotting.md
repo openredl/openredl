@@ -21,17 +21,17 @@ You can do it with any prefered method. The steps using Miniforge Prompt or Term
 2. Create a new Python environment with the required libraries.
     Format: [conda create -n] [environment_name] [library1] [library2] …
     ```console
-    $ conda create -n openredl-env matplotlib pandas pyserial
+    conda create -n openredl-env matplotlib pandas pyserial
     ```
 3. Activate the environment
     ```console
-    $ conda activate openredl-env
+    conda activate openredl-env
     ```
 4. Install the tools library pyopenredl.
     Go to the Tools folder:
    ```console
-    $ cd .\openredl\Tools\
-    $ python -m pip install -e ./pyopenredl/
+    cd .\openredl\Tools\
+    python -m pip install -e ./pyopenredl/
     ```
 
 5. Open the script file **real_time_plot.py** and configure it as required. After modifying it, **save the file**!
@@ -73,26 +73,26 @@ As seen in the script:
 6. Execute the script in Terminal or e.g. Anaconda Powershell.
     Go to the folder where the plot script is stored:
     ```console
-    $ cd .\openredl\Tools\
-    $ python real_time_plot.py
+    cd .\openredl\Tools\
+    python real_time_plot.py
     ```
 A file called _data.csv_ will be stored with the data read from the DL. You should not open it while running the script, as it is continuously being updated.
 The data received is printed in the terminal where the script is executed, and can be read directly.
 
 (Optional Interaction)
 If you want to:<br/>
-O7. **add a note to the log file** just write it in the textbox and type <enter>.<br/>
+O7. **add a note to the log file** just write it in the textbox at the bottom of the plots and type "enter".<br/>
 O8. **restart** the plot as a new one, press the datalogger restart button.
 
 
 #### 4.3 Other Useful Instructions
 To remove an (Ana)Conda environment run:<br/>
     ```console
-    $ conda env remove -n [env-name]
+    conda env remove -n [env-name]
     ```
 
 To see excisting an (Ana)Conda environment run:<br/>
     ```console
-    $ conda env list
+    conda env list
     ```
 
