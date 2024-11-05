@@ -16,7 +16,7 @@ Download the **Miniforge3** for your operating system and follow the installing 
 
 
 #### 4.2 Create a Python environment
-You can do it with any prefered method. The steps using Miniforge Prompt or Terminal are:
+You can do it with any preferred method. The steps using Miniforge Prompt or Terminal are:
 1. Open a command line environment in which Conda instructions run e.g. Miniforge Prompt or Terminal
 2. Create a new Python environment with the required libraries.
     Format: [conda create -n] [environment_name] [library1] [library2] …
@@ -28,9 +28,9 @@ You can do it with any prefered method. The steps using Miniforge Prompt or Term
     conda activate openredl-env
     ```
 4. Install the tools library pyopenredl.
-    Go to the Tools folder:
+    Go to the Tools folder inside the openredl extracted folder:
    ```console
-    cd .\openredl\Tools\
+    cd ./openredl-main/Tools/
     python -m pip install -e ./pyopenredl/
     ```
 
