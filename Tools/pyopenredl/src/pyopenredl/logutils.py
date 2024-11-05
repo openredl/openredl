@@ -13,7 +13,8 @@ from pathlib import Path
 
 file_extention = ".TXT"
 file_marker = "M"
-
+t_start = "2000/01/01 00:00:00"
+t_end = "2100/01/01 00:00:00"
 
 def get_files_list(dir_path = None,
                    t_start = None,

@@ -5,7 +5,8 @@ Created on Tue Jul 30 10:53:35 2024
 
 @author: aj
 """
-from pyopenredl.logutils import read_data_to_df, plot_data, check_share_x, kwds
+from pyopenredl.logutils import read_data_to_df, plot_data, check_share_x, \
+kwds, t_start, t_end
 import matplotlib.pyplot as plt
 
 if __name__ == "__main__":
@@ -24,7 +25,7 @@ if __name__ == "__main__":
     t_start = "2024/7/26 12:30:00"
     t_end = "2024/7/30 10:00:00"
 
-    # Colums to plot
+    # Colums to plot (If [] : empty array given, will plot all columns in data)
     cols_toplot =[["DIFF1_mean[mV]", "DIFF1_min[mV]", "DIFF1_max[mV]"],
                   ["DIFF1_mean[mV]", "DIFF1_min[mV]", "DIFF1_max[mV]"],
                   "V2rms[V]",
@@ -71,3 +72,7 @@ if __name__ == "__main__":
     plt.show()
     
     ############################################################################
+    # Output
+    # data: pandas dataframe with data read with the columns and datetime filter
+    # data_rs1min: df resampled to 1min
+    # data_rs15min: df resampled to 15min
