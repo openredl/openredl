@@ -6,7 +6,7 @@ Created on Tue Jul 30 10:53:35 2024
 @author: aj
 """
 from pyopenredl.logutils import read_data_to_df, plot_data, check_share_x, \
-kwds, t_start, t_end
+kwds, t_start, t_end, cols_to_plot
 import matplotlib.pyplot as plt
 
 if __name__ == "__main__":
@@ -22,11 +22,11 @@ if __name__ == "__main__":
     time_correction_seconds = 0
     # Date filter (after correction)
     # format '%Y/%m/%d %H:%M:%S' e.g. "2024/09/26 12:50:00"
-    t_start = "2024/7/26 12:30:00"
-    t_end = "2024/7/30 10:00:00"
+    t_start = "2024/7/27 00:00:00"
+    t_end = "2024/7/30 00:00:00"
 
     # Colums to plot (If [] : empty array given, will plot all columns in data)
-    cols_toplot =[["DIFF1_mean[mV]", "DIFF1_min[mV]", "DIFF1_max[mV]"],
+    cols_to_plot =[["DIFF1_mean[mV]", "DIFF1_min[mV]", "DIFF1_max[mV]"],
                   ["DIFF1_mean[mV]", "DIFF1_min[mV]", "DIFF1_max[mV]"],
                   "V2rms[V]",
                   "P2real[W]",
@@ -53,16 +53,16 @@ if __name__ == "__main__":
                           )
 
     # Creating plot
-    nrows = len(cols_toplot) if cols_toplot else len(list(df.columns.values))
+    nrows = len(cols_to_plot) if cols_to_plot else len(list(df.columns.values))
     fig, axes = plt.subplots(ncols=1,
                              nrows=nrows,
                              figsize=(12,6),
-                             sharex = check_share_x(cols_toplot),
+                             sharex = check_share_x(cols_to_plot),
                              num = "Data Plot",
                              )
 
     # Plotting
-    data = plot_data(df, fig, axes, cols_to_plot=cols_toplot)
+    data = plot_data(df, fig, axes, cols_to_plot=cols_to_plot)
     # Plotting with resample
     #data_1min = plot_data(df, fig, axes, cols_to_plot=cols_toplot, resample_interval="1min")
     # example for resample
