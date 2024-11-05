@@ -8,6 +8,7 @@ import serial.tools.list_ports
 import time, os , datetime
 import warnings
 warnings.filterwarnings( "ignore", message = ".*This figure includes Axes that are not compatible with tight_layout.*" )
+warnings.filterwarnings("ignore", message="No artists with labels found to put in legend.")
 import time
 import traceback
 
