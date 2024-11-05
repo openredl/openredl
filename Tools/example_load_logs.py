@@ -24,14 +24,14 @@ if __name__ == "__main__":
 
     # Colums to plot
     select_columns =[
-                  "DIFF1_mean[mV]",
-                  "DIFF1_min[mV]",
-                  "DIFF1_max[mV]",
-                  "V2rms[V]",
-                  "P2real[W]",
-                  "PF2[]",
-                  "f2[Hz]"
-                  ]
+                     "DIFF1_mean[mV]",
+                     "DIFF1_min[mV]",
+                     "DIFF1_max[mV]",
+                     "V2rms[V]",
+                     "P2real[W]",
+                     "PF2[]",
+                     "f2[Hz]"
+                     ]
             
     ## Code
     ###########################################################################
@@ -40,12 +40,10 @@ if __name__ == "__main__":
                           t_start,
                           t_end,
                           t_correction_h=time_correction_hours,
-                          t_correction_s=time_correction_seconds
+                          t_correction_s=time_correction_seconds,
+                          select_columns=select_columns
                           )
     # Selecting dates
-    df = df[(df.index> t_start) & (df.index< t_end)]
-    # Selecting columns
-    if select_columns: df = df[select_columns]
     # Resampling
     df_rs60s = df.resample('60s').mean()
 

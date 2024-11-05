@@ -10,11 +10,16 @@ import matplotlib.pyplot as plt
 import matplotlib.ticker as mtick
 from numpy import nan
 from pathlib import Path
+import warnings
+warnings.filterwarnings("ignore", message="No artists with labels found to put in legend.")
 
 file_extention = ".TXT"
 file_marker = "M"
 t_start = "2000/01/01 00:00:00"
 t_end = "2100/01/01 00:00:00"
+cols_to_plot = []
+
+
 
 def get_files_list(dir_path = None,
                    t_start = None,
@@ -108,7 +113,8 @@ def read_data_to_df(dir_path,
                    t_start=None,
                    t_end=None,
                    t_correction_h=0,
-                   t_correction_s=0
+                   t_correction_s=0,
+                   select_columns=None
                    ):
                    
     files = get_files_list(dir_path = dir_path,
@@ -128,8 +134,39 @@ def read_data_to_df(dir_path,
         print("No data found for the given time interval.\n")
     else:
         print(f"{len(df)} rows found for the given time interval.\n")
+        df = df.dropna(axis=1, how='all')
+        print(f"Columns with data in the given time: {list(df.columns)}")
 
+    if isinstance(select_columns, list) and len(select_columns)>0:
 
+        columns = list(df.columns.values)
+               
+        cols_selected=[]
+        for col in select_columns:
+            if isinstance(col, str):
+                col_tag = col
+            elif isinstance(col, int):
+                try:
+                    col_tag = columns[col]
+                except IndexError:
+                    print(f"Column {col} discarded, not in index")                    
+            else:
+                print(f"Column {col} discarded, must be int or str")
+                continue
+            
+            if col_tag in columns:
+                cols_selected.append(col_tag)
+            else:
+                print(f"Column {col} discarded, not in df columns")
+
+        # Remove duplicted items
+        cols_selected = list(set(cols_selected))
+
+        if len(cols_selected)>0:
+            print(f"Columns selected: {cols_selected}")    # Selecting columns
+            df = df[cols_selected]
+
+    df = df.dropna(axis=1, how='all')
     return df
 
 
@@ -153,7 +190,9 @@ kwds = {#"linestyle": 'None',
 
 
 def plot_data(df, fig, axes, cols_to_plot=None, resample_interval = None, ):
-    
+
+    columns = df.columns.values
+   
     if len(cols_to_plot) == 1:
         axes = [axes]
     
@@ -204,7 +243,7 @@ def plot_data(df, fig, axes, cols_to_plot=None, resample_interval = None, ):
                 # is the axis given by column number?
                 else:
                     y_plot = data[columns[col]]
-                    kwds_ax["label"] = columns_labels[col] + resample_label
+                    kwds_ax["label"] = columns[col] + resample_label
                 
                 axes[ax_num].plot(x_plot,
                                   y_plot,
