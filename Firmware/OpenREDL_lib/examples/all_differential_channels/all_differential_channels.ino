@@ -14,7 +14,7 @@ void setup() {
   format_log = TIMESERIES; // TIMESERIES or JSON
   // storage_interval_s: Default 10 (s), minimum ~0.1(s)
   // below 1s has lower time precision.
-  storage_interval_s = 10; 
+  storage_interval_s = 2; 
 
 //##############################################################################
 // CONFIGURATION OF ANALOG CHANNELS
@@ -92,8 +92,8 @@ void samples_to_take(){
     diff2.get_continuous_sample();
     diff3.get_continuous_sample();        
     diff4.get_continuous_sample();
-    diff5.get_continuous_sample();
-    diff6.get_continuous_sample();
+    //diff5.get_continuous_sample();
+    //diff6.get_continuous_sample();
 
 //#############################################################################
 
@@ -115,33 +115,33 @@ void to_log_content(){
 // Log for differential channels
 //#############################################################################
     add_to_log(F("DIFF1_mean"), F("mV"), diff1.mean_sample_unit(),decimal_digits);
-    add_to_log(F("DIFF1_rms"), F("mV"), diff1.rms_sample_unit(),decimal_digits);   
-    add_to_log(F("DIFF1_min"), F("mV"), diff1.min_sample_unit(),decimal_digits);       
-    add_to_log(F("DIFF1_max"), F("mV"), diff1.max_sample_unit(),decimal_digits);       
+//    add_to_log(F("DIFF1_rms"), F("mV"), diff1.rms_sample_unit(),decimal_digits);   
+//    add_to_log(F("DIFF1_min"), F("mV"), diff1.min_sample_unit(),decimal_digits);       
+//    add_to_log(F("DIFF1_max"), F("mV"), diff1.max_sample_unit(),decimal_digits);       
 // ##################################################
     add_to_log(F("DIFF2_mean"), F("mV"), diff2.mean_sample_unit(),decimal_digits);
-    add_to_log(F("DIFF2_rms"), F("mV"), diff2.rms_sample_unit(),decimal_digits);   
-    add_to_log(F("DIFF2_min"), F("mV"), diff2.min_sample_unit(),decimal_digits);       
-    add_to_log(F("DIFF2_max"), F("mV"), diff2.max_sample_unit(),decimal_digits);       
+//    add_to_log(F("DIFF2_rms"), F("mV"), diff2.rms_sample_unit(),decimal_digits);   
+//    add_to_log(F("DIFF2_min"), F("mV"), diff2.min_sample_unit(),decimal_digits);       
+//    add_to_log(F("DIFF2_max"), F("mV"), diff2.max_sample_unit(),decimal_digits);       
 // ##################################################
     add_to_log(F("DIFF3_mean"), F("mV"), diff3.mean_sample_unit(),decimal_digits);
-    add_to_log(F("DIFF3_rms"), F("mV"), diff3.rms_sample_unit(),decimal_digits);   
-    add_to_log(F("DIFF3_min"), F("mV"), diff3.min_sample_unit(),decimal_digits);       
-    add_to_log(F("DIFF3_max"), F("mV"), diff3.max_sample_unit(),decimal_digits);       
+//    add_to_log(F("DIFF3_rms"), F("mV"), diff3.rms_sample_unit(),decimal_digits);   
+//    add_to_log(F("DIFF3_min"), F("mV"), diff3.min_sample_unit(),decimal_digits);       
+//    add_to_log(F("DIFF3_max"), F("mV"), diff3.max_sample_unit(),decimal_digits);       
 // ##################################################
     add_to_log(F("DIFF4_mean"), F("mV"), diff4.mean_sample_unit(),decimal_digits);
-    add_to_log(F("DIFF4_rms"), F("mV"), diff4.rms_sample_unit(),decimal_digits);   
-    add_to_log(F("DIFF4_min"), F("mV"), diff4.min_sample_unit(),decimal_digits);       
-    add_to_log(F("DIFF4_max"), F("mV"), diff4.max_sample_unit(),decimal_digits);       
+//    add_to_log(F("DIFF4_rms"), F("mV"), diff4.rms_sample_unit(),decimal_digits);   
+//    add_to_log(F("DIFF4_min"), F("mV"), diff4.min_sample_unit(),decimal_digits);       
+//    add_to_log(F("DIFF4_max"), F("mV"), diff4.max_sample_unit(),decimal_digits);       
 // ##################################################
-    add_to_log(F("DIFF5_mean"), F("mV"), diff5.mean_sample_unit(),decimal_digits);
-    add_to_log(F("DIFF5_rms"), F("mV"), diff5.rms_sample_unit(),decimal_digits);   
-    add_to_log(F("DIFF5_min"), F("mV"), diff5.min_sample_unit(),decimal_digits);       
-    add_to_log(F("DIFF5_max"), F("mV"), diff5.max_sample_unit(),decimal_digits);       
+//    add_to_log(F("DIFF5_mean"), F("mV"), diff5.mean_sample_unit(),decimal_digits);
+//    add_to_log(F("DIFF5_rms"), F("mV"), diff5.rms_sample_unit(),decimal_digits);   
+//    add_to_log(F("DIFF5_min"), F("mV"), diff5.min_sample_unit(),decimal_digits);       
+//    add_to_log(F("DIFF5_max"), F("mV"), diff5.max_sample_unit(),decimal_digits);       
 // ##################################################
-    add_to_log(F("DIFF6_mean"), F("mV"), diff6.mean_sample_unit(),decimal_digits);
-    add_to_log(F("DIFF6_rms"), F("mV"), diff6.rms_sample_unit(),decimal_digits);   
-    add_to_log(F("DIFF6_min"), F("mV"), diff6.min_sample_unit(),decimal_digits);       
-    add_to_log(F("DIFF6_max"), F("mV"), diff6.max_sample_unit(),decimal_digits);        
+//    add_to_log(F("DIFF6_mean"), F("mV"), diff6.mean_sample_unit(),decimal_digits);
+//    add_to_log(F("DIFF6_rms"), F("mV"), diff6.rms_sample_unit(),decimal_digits);   
+//    add_to_log(F("DIFF6_min"), F("mV"), diff6.min_sample_unit(),decimal_digits);       
+//    add_to_log(F("DIFF6_max"), F("mV"), diff6.max_sample_unit(),decimal_digits);        
 
 }
