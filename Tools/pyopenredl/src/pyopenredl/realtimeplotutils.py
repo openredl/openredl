@@ -421,8 +421,6 @@ if __name__=="__main__":
     #       [{"y":[y_axis1, y_axis2...]}]
     #       [{"x":x_axis, "y":[y_axis1, y_axis2...], "<matplotlib_plot_kwd:value}]
     # 
-    
-
     columns_to_plot = [
        #[1,2,3,4], # example multiple y_axis with column0/datetime as x_axis
        #[1],  # example one y_axis with column0/datetime as x_axis
