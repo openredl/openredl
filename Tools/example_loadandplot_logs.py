@@ -16,7 +16,7 @@ if __name__ == "__main__":
     ##############################################################################
     ## Files to read
     # (with the format [file_marker]YYMMDD[file_extension], e.g. M240726.TXT)
-    dir_path = "example_sensors_sampling/ArduinoDL/"
+    dir_path = "data/example_sensors_sampling/ArduinoDL/"
     # offset to convert datetime from measurements
     time_correction_hours = 0
     time_correction_seconds = 0
@@ -50,7 +50,7 @@ if __name__ == "__main__":
     #######################################################################
     # Example Resampling
     #######################################################################
-    df_rs60s = df.resample('60s').mean()
+    # df_rs60s = df.resample('60s').mean()
     #######################################################################
     # Example Plotting
     #######################################################################
@@ -86,7 +86,7 @@ if __name__ == "__main__":
     plot_resample=True
     if plot_resample:
         # Plot with given plot function. For more detail better use matplotlib
-        df_5min = plot_data(df, fig, axes, cols_to_plot=cols_to_plot,
+        df_rs5min = plot_data(df, fig, axes, cols_to_plot=cols_to_plot,
                             resample_interval="5min")
     ###########################################################################
     # Final Plot Format
@@ -96,5 +96,6 @@ if __name__ == "__main__":
     ############################################################################
     # Output
     # data: pandas dataframe with data read with the columns and datetime filter
+    # data_rs60s: df resampled to 60s
     # data_rs5min: df resampled to 5min
 
