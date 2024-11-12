@@ -257,64 +257,87 @@ class SerialDL:
             else:
                 data = data.tail(self.points)
             
+            # Get column names
             if headers is not None:
-                columns = data.columns.values
-                columns_labels = data.columns.values
+                columns_names = data.columns.values
             else:
-                columns = [i for i in range(10)]
-                columns_labels = ["col" + str(i) for i in range(10)]
+                columns_names = ["col" + str(i) for i in range(10)]
     
             for ax in self.axes:
                 ax.cla()
                 ax.grid(visible=True)
-                
+
+            ###########################################################            
+            # Labeling x axes                
+            ###########################################################
             if self.share_x:
                 self.axes[-1].set_xlabel('Time', loc = "right", labelpad = 0)
             else:
                 for ax_num, cols in enumerate(self.cols_to_plot):
+                    #print("cols: ", cols, flush=True)
                     if type(cols[0]) is dict and "x" in cols[0].keys():
-                        self.axes[ax_num].set_xlabel(columns[cols[0]['x']],
+                        if isinstance(cols[0]['x'], int):
+                            x_label = columns_names[cols[0]['x']]
+                        else:
+                            x_label = cols[0]['x']
+                        self.axes[ax_num].set_xlabel(x_label,
                                                      loc="right",
                                                      labelpad=0
                                                      )
+                        #print(f"x_label: {x_label}", flush=True)
                     else:
                         self.axes[ax_num].set_xlabel('Time',
                                                      loc="right",
                                                      labelpad=0
                                                      )
-
+            ###########################################################
+            # Default plot params
             kwds = {"lw": 0.75,
                     "marker": ".",
                     }
 
+            ###########################################################
+            # Selecting and ploting data
+            ###########################################################
             if len(data):
-                for ax_num, col_info in enumerate(self.cols_to_plot):
+                
+                # Working each plot axis
+                for ax_num, plot_axis_info in enumerate(self.cols_to_plot):
                     kwds_ax = kwds.copy()
-                    x_plot = data.index # index is default x axis
                     
-                    if type(col_info[0]) is dict:
-                        col_info_tmp = col_info[0].copy()
-                        cols = col_info_tmp.pop("y")
-                        
-                        if "x" in col_info_tmp.keys():
-                            x_plot = data[columns[col_info_tmp.pop('x')]]
-
-                        kwds_ax.update(col_info_tmp)
-                        
-                    else:
-                        cols = col_info
-
-                    for col in cols:
-                        try:
-                            # is the axis given by name?
-                            if isinstance(col, str):
-                                y_plot = data[col]
-                                kwds_ax["label"] = col
-                                
-                            # is the axis given by column number?
+                    # if plotting axis info is given as dictionary
+                    if type(plot_axis_info[0]) is dict:
+                        plot_axis_info_tmp = plot_axis_info[0].copy()
+                        y_cols = plot_axis_info_tmp.pop("y")
+                                               
+                        if "x" in plot_axis_info_tmp.keys():
+                            if isinstance(plot_axis_info_tmp['x'], int):
+                                x_label = columns_names[plot_axis_info_tmp.pop('x')]
                             else:
-                                y_plot = data[columns[col]]
-                                kwds_ax["label"] = columns_labels[col]
+                                x_label = plot_axis_info_tmp.pop('x')
+                            
+                            x_plot = data[x_label]
+
+                        # Loading plot specifications given for the axis
+                        kwds_ax.update(plot_axis_info_tmp)                   
+                                                         
+                    # if plotting axis info is not given as dictionary    
+                    else:
+                        y_cols = plot_axis_info
+                        x_plot = data.index # index is default x axis
+
+                    # Plotting each y column
+                    ###########################################################
+                    for col in y_cols:
+                        try:
+                            # Get column name
+                            if isinstance(col, str): # is the axis given by name?
+                                y_name = col                               
+                            else: # is the axis given by column number?
+                                y_name = columns_names[col]
+                                
+                            y_plot = data[y_name]
+                            kwds_ax["label"] = y_name
                             
                             self.axes[ax_num].plot(x_plot,
                                                    y_plot,
@@ -324,6 +347,7 @@ class SerialDL:
                            print("[Warning] Column to plot not found:", col)
                         except KeyError:
                            print("[Warning] Key not found in data", col)
+                    ###########################################################
                                 
                 for ax in self.axes:
                     ax.legend(loc='center left',
@@ -338,6 +362,8 @@ class SerialDL:
                 
             else:
                 print("[INFO] No data to plot after last headers.")
+            ###########################################################
+            
             
         except FileNotFoundError:
             print("[INFO] Data file to plot not found")
@@ -387,9 +413,12 @@ def autoselect_port(terms=None, index=0):
         selected_ports = ports
 
     if len(selected_ports) > 0:
+        print(f'Found {len(selected_ports)} devices with matching terms:')
+        print(*selected_ports, sep="\n")
         return selected_ports[index][0]
     else:
-        print(f'Port index no. {index} not found in {len(selected_ports)} ports selected.')
+        #print(f'Port index no. {index} not found in {len(selected_ports)} ports selected.')
+        print('Port terms not found in serial ports.')
         return ""
 
 
@@ -399,7 +428,7 @@ if __name__=="__main__":
     ##########################################################################
 
     # Automatic port selection.
-    terms = ['D307R956', 'arduino'] #terms to search automatically for a port.
+    terms = ['D307R956', 'arduino', "2341:0043"] #terms to search automatically for a port.
     port = autoselect_port(terms, 0)
     # Else, select manually the port of the Datalogger in your computers.
     # You can find the right port name in:
