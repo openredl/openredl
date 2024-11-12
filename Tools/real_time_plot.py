@@ -5,7 +5,7 @@ import pyopenredl.realtimeplotutils as rtp
 ##########################################################################
 
 # Automatic port selection.
-terms = ['D307R956', 'arduino'] #terms to search automatically for a port.
+terms = ['D307R956', 'arduino', "2341:0043"] #terms to search automatically for a port.
 port = rtp.autoselect_port(terms, 0)
 # Else, select manually the port of the Datalogger in your computers.
 # You can find the right port name in:
@@ -16,7 +16,7 @@ port = rtp.autoselect_port(terms, 0)
 
 # how many units of data should be plotted
 unit = "points" # points/seconds
-amount = 10*60 # how many units should be kept in the plot
+amount = 1*60 # how many units should be kept in the plot
 
 # Which data columns should be plotted?
 # Array of subarrays. Each subarray "[]" is a plotting axis.
@@ -32,12 +32,14 @@ columns_to_plot = [
    #[2, "P1real[W]"], # example with y_axis as column number and as column_name
    #[{"x":2,"y":[2,"P1real[W]"]}], # example with other column as x _axis
    #[{"x":2,"y":[3], "linestyle":"none"}], # example with extra plot kwd,
-    [1],
-    [2],
-    [3],
-    [4],
-    #[5],
-    #[6],
+    [1, 3, 4],
+    [1,3],
+    [3, 'DIFF1_mean[mV]'],
+    [{"x":2,"y":[3,4], "linestyle":"none"}], # example with
+    [{"x":'DIFF1_mean[mV]',"y":['DIFF1_mean[mV]',4], "linestyle":"none"}], # example with extra plot kwd,
+    [{"x":'DIFF1_mean[mV]',"y":[3,4], "linestyle":"none"}], # example with extra plot kwd,
+    #['datetime', 'DIFF1_mean[mV]', 'DIFF1_max[mV]', 'DIFF2_mean[mV]', 'DIFF2_max[mV]', 'notes']
+    # DIFF1_mean[mV] DIFF1_rms[mV] DIFF1_min[mV] DIFF1_max[mV]
                    ]
 ##########################################################################
 
