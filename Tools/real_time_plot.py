@@ -5,7 +5,8 @@ import pyopenredl.realtimeplotutils as rtp
 ##########################################################################
 
 # Automatic port selection.
-terms = ['D307R956', 'arduino', "2341:0043"] #terms to search automatically for a port.
+#terms to search automatically for a port.
+terms = ['D307R956', 'arduino', "2341:0043"]
 port = rtp.autoselect_port(terms, 0)
 # Else, select manually the port of the Datalogger in your computers.
 # You can find the right port name in:
@@ -34,16 +35,16 @@ columns_to_plot = [
    #[{"x":2,"y":[3], "linestyle":"none"}], # example with extra plot kwd,
     [1, 3, 4],
     [1,3],
-    [3, 'DIFF1_mean[mV]'],
     [{"x":2,"y":[3,4], "linestyle":"none"}], # example with
-    [{"x":'DIFF1_mean[mV]',"y":['DIFF1_mean[mV]',4], "linestyle":"none"}], # example with extra plot kwd,
-    [{"x":'DIFF1_mean[mV]',"y":[3,4], "linestyle":"none"}], # example with extra plot kwd,
-    #['datetime', 'DIFF1_mean[mV]', 'DIFF1_max[mV]', 'DIFF2_mean[mV]', 'DIFF2_max[mV]', 'notes']
-    # DIFF1_mean[mV] DIFF1_rms[mV] DIFF1_min[mV] DIFF1_max[mV]
-                   ]
+    #Headers example: ['datetime', 'DIFF1_mean[mV]', 'DIFF1_max[mV]', 'DIFF2_mean[mV]', 'DIFF2_max[mV]', 'notes']
+    #[3, 'DIFF1_mean[mV]'],
+        #[{"x":'DIFF1_mean[mV]',"y":['DIFF1_mean[mV]',4], "linestyle":"none"}], # example with extra plot kwd,
+    #[{"x":'DIFF1_mean[mV]',"y":[3,4], "linestyle":"none"}], # example with extra plot kwd,
+    
+                       ]
 ##########################################################################
 
-# Create object dl type arduino _serial and run it!
+# Create data logger object and run it!
 dl = rtp.SerialDL(port, amount, columns_to_plot, unit)
 dl.run()
 
