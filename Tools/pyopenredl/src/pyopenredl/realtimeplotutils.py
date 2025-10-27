@@ -38,6 +38,7 @@ class SerialDL:
         self.filename = 'data.csv'
         self.headers_filename = "headers.csv"
         self.ani = None
+        self.last_label_on=True
         print(f'\n{"#"*65}\n{"#"*20} Datalogger Plotting Started! {"#"*20}\n{"#"*65}')
 
         ports = [p.device for p in list(serial.tools.list_ports.comports())]
@@ -51,7 +52,7 @@ class SerialDL:
             ports = serial.tools.list_ports.comports()
             for p in ports:
                 print("port:", p.device, ', Manufacturer:', p.manufacturer)
-            print(f'\n{"#"*65}\n{"#"*20} Datalogger Plotting Ended! {"#"*20}\n{"#"*65}')
+            print(f'\n{"#"*65}\n{"#"*20} Data Logger Plotting Ended! {"#"*20}\n{"#"*65}')
             self.stop = True
 
     def start_read_serial(self):
@@ -77,7 +78,7 @@ class SerialDL:
         path = os.path.dirname(os.path.realpath(__file__))
         file_path = os.path.join(path, self.filename)
         print(f"[INFO] The data is stored in the file:\n{file_path}")
-        print(f'\n{"#"*65}\n{"#"*20} Datalogger Plotting Ended! {"#"*20}\n{"#"*65}')
+        print(f'\n{"#"*65}\n{"#"*20} Data Logger Plotting Ended! {"#"*20}\n{"#"*65}')
 
 
     def check_share_x(self):
@@ -114,7 +115,7 @@ class SerialDL:
                     with open(self.headers_filename, "a") as f:
                         current_dt = datetime.datetime.now().strftime('%Y/%m/%d %H:%M:%S')
                         cols_list = string.replace("\n", "").split(",")
-                        cols_list.pop(0) # droping H column
+                        cols_list.pop(0) # dropping H column
                         f.write(f"{current_dt},{str(cols_list)}\n")    
 
                 else: 
@@ -130,7 +131,7 @@ class SerialDL:
 
 
     def submitnote(self, expression):
-        """Submit note to datalogger via serial port interface"""
+        """Submit note to data Logger via serial port interface"""
         if self.text_box.text != "" :
             print(f"Note sent: {expression}", flush = True)
             self.text_box.set_val("")
@@ -139,7 +140,7 @@ class SerialDL:
 
 
     def redistribute_plot(self, force=False):
-        """Redistribute supblots and legend in window"""
+        """Redistribute subblots and legend in window"""
         bbox = self.fig.get_window_extent().transformed(
                                             self.fig.dpi_scale_trans.inverted())
         width, height = bbox.width*self.fig.dpi, bbox.height*self.fig.dpi
@@ -198,7 +199,7 @@ class SerialDL:
                                 interval=1000,
                                 blit=False
                                 )
-            #plt.suptitle('Real Time Ploting of Datalogger Measurements.', x=0.1, ha="left")
+            #plt.suptitle('Real Time Plotting of Data Logger Measurements.', x=0.1, ha="left")
             plt.show()
             
         except Exception:
@@ -227,13 +228,15 @@ class SerialDL:
                     count_line += 1
                     if new_line.startswith("H,"):
                         last_header_line = count_line
+
             
-            #print("Last header in line ", last_header_line)
-            if last_header_line>-1:
+            if last_header_line==0: #  NOTE: To take initial header. (Why?)
+                headers = 0
+            elif last_header_line>-1:
                 headers = 1
             else:
                 headers = None
-            
+
             data = pd.read_csv(self.filename, header=headers,
                                skiprows=last_header_line-1,
                                index_col=1,
@@ -343,6 +346,16 @@ class SerialDL:
                                                    y_plot,
                                                    **kwds_ax
                                                    )
+                            if self.last_label_on:
+                                color_used = self.axes[ax_num].get_lines()[-1].get_color()
+                                if isinstance(y_plot.iloc[-1], str):
+                                    label_txt = y_plot.iloc[-1]
+                                else:
+                                    #label_txt = f"{y_plot.iloc[-1]:.2f}"
+                                    label_txt = f"{y_plot.iloc[-1]}"
+                                self.axes[ax_num].text(x_plot.tolist()[-1], y_plot.iloc[-1],
+                                    " " + label_txt, color=color_used,  ha="left")
+
                         except IndexError:
                            print("[Warning] Column to plot not found:", col)
                         except KeyError:
