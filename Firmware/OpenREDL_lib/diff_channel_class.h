@@ -727,3 +727,19 @@ void add_to_log(String name, String unit, T message, int n){
 //    add_to_
 //
 //
+
+float PT100 = 100.;
+float PT1000 = 1000.;
+
+float calculate_Pt_RtoC(float R,float R0) {
+    //Get Temperature in celcius from:
+    // ONLY VALID FOR T > 0 °C
+    // (IEC/Callendar–Van Dusen): R(T) = R0 [1 + A·T + B·T^2 + C·(T − 100)·T^3]
+    // For T ≥ 0°C the C term is zero and it reduces to a quadratic
+    //    R: Measured resistance in Ohms
+    //    R0: Platinium Sensor Reference resistance in Ohms at 0°C
+    // Discarding C factor. Error for-100C->0.222C, for 100C->0.015C.
+    float A=3.9083E-3; 
+    float B=-5.775E-7; 
+    return ((-A + sqrt((A*A) - 4.0 * B * (1.0 - R/R0))) / (2.0 * B));
+}
