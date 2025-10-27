@@ -1,7 +1,3 @@
-//before committing, test:
-//- if sample max and min are working correctly for diff channels (changed from float to int)
-//- if size of channels objects can still be reduced, to add a 3rd phase
-
 #define FIRMWARE_DESCRIPTION "Continuous sampling of 6 differential channels, "\
                              "storing at 10 seconds interval."
 
@@ -14,7 +10,7 @@ void setup() {
   format_log = TIMESERIES; // TIMESERIES or JSON
   // storage_interval_s: Default 10 (s), minimum ~0.1(s)
   // below 1s has lower time precision.
-  storage_interval_s = 2; 
+  storage_interval_s = 10; 
 
 //##############################################################################
 // CONFIGURATION OF ANALOG CHANNELS
