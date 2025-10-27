@@ -33,7 +33,7 @@ columns_to_plot = [
    #[2, "P1real[W]"], # example with y_axis as column number and as column_name
    #[{"x":2,"y":[2,"P1real[W]"]}], # example with other column as x _axis
    #[{"x":2,"y":[3], "linestyle":"none"}], # example with extra plot kwd,
-    [1, 3, 4],
+    [1,2, 3, 4],
     [1,3],
     [{"x":2,"y":[3,4], "linestyle":"none"}], # example with
     #Headers example: ['datetime', 'DIFF1_mean[mV]', 'DIFF1_max[mV]', 'DIFF2_mean[mV]', 'DIFF2_max[mV]', 'notes']
