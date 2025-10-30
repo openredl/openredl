@@ -19,7 +19,8 @@ Please have a look at the documentation:
  - [3. Firmware](Documentation/UserManual_3_Firmware.md) explains the DLs firmware (an Arduino IDE .ino file) and how to configure it.
  - [4. Real-Time Plotting](Documentation/UserManual_4_RealTimePlotting.md) explains the use and configuration of the Python script to plot the measurements in real time.
  - [5. Validation](Documentation/UserManual_5_Validation.md) present initial validation data, comparing measurements taken with a professional datalogger.
- 
+ - [6. Learning Tests](UserManual_6_LearningTests.md) follow these tests to train openREDL basic skills.
+
 ## Project status, contributing and support
 The project is on active development! These and previous versions are being used on renewable energy learning laboratories and pilot tests in community energy projects.
 Please report any issue and request functions required for your use cases.
