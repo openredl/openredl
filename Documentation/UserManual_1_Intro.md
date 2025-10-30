@@ -14,6 +14,8 @@ The documentation consist in the following sections:
  - [3. Firmware](UserManual_3_Firmware.md) is a detailed explanation of the DLs firmware, and Arduino IDE .ino file and how to configure it.
  - [4. Real-Time Plotting](UserManual_4_RealTimePlotting.md) explains the use and configuration of the Python script.
  - [5. Validation](UserManual_5_Validation.md) present initial validation data, comparimg measurements with a professional datalogger.
+ - [6. Learning Tests](UserManual_6_LearningTests.md) follow these tests to train openREDL basic skills.
+
 
 ## 1. Quick Guide
 
