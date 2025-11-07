@@ -168,7 +168,7 @@ void headers_to_log(int log_num){
      if (format_log == TIMESERIES){
         format_log = TIMESERIES_HEADERS;
         select_log = log_num;
-        add_to_log(F("H<datetime,"));
+        add_to_log(F("H,datetime,"));
         to_log_content();
         add_to_log(F("notes>\n"));
         format_log = TIMESERIES;
@@ -224,7 +224,7 @@ void to_log_start(){
     // add_to_log(dt);
     // add_to_log(tm);
     if (format_log ==JSON){
-        add_to_log(F("M<{\"datetime\":\""));//Meassurement line indicator
+        add_to_log(F("M,{\"datetime\":\""));//Meassurement line indicator
         add_to_log(dt);
         add_to_log(tm);
         
@@ -239,7 +239,7 @@ void to_log_start(){
             }        
     }
     else{ // TIMESERIES FORMAT as default for any other value
-        add_to_log(F("M<"));//Meassurement line indicator
+        add_to_log(F("M,"));//Meassurement line indicator
         add_to_log(dt);
         add_to_log(tm);
 
