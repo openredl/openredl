@@ -69,7 +69,7 @@ def load_files_in_df(files, path, t_start, t_end, t_correction_h=0, t_correction
         with open(filepath) as f:
             print("file", filepath)
             for line in f:
-                if line.startswith('H<'):
+                if line.startswith('H<') or line.startswith('H,'):
                     #print(line)
                     if t != "":
                         #print("set in file", file)
@@ -82,7 +82,8 @@ def load_files_in_df(files, path, t_start, t_end, t_correction_h=0, t_correction
 
                     t = line[2:]
     
-                if line.startswith('M<'): t += line[2:]
+                if line.startswith('M<') or line.startswith('M,'):
+                    t += line[2:]
                 
             df2 = pd.read_csv(StringIO(t),
                               index_col = 0,
