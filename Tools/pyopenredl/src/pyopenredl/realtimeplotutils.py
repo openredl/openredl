@@ -99,14 +99,14 @@ class SerialDL:
             #print('New line', line)
             try:
                 string = line.decode("utf-8").replace('\r','')
-                if string.startswith('M<'):
+                if string.startswith('M<') or string.startswith('M,'):
                     string = string.replace('M<', "M,")
                     string = string.replace('>', "")
                     #print('New data', string.replace('\n',''))
                     print(string.replace('M,', "").replace('\n','').replace(',','\t'))
                     with open(self.filename, "a") as f:
                         f.write(string)
-                elif string.startswith('H<'):
+                elif string.startswith('H<') or string.startswith('H,'):
                     string = string.replace('H<', "H,")
                     string = string.replace('>', "")
                     print(string.replace('H,', "").replace('\n','').replace(',',' '))
