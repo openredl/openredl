@@ -31,7 +31,7 @@ You can do it with any preferred method. The steps using Miniforge Prompt or Ter
     Go to the Tools folder inside the openredl extracted folder:
    ```console
     cd ./openredl-main/Tools/
-    python -m pip install -e ./pyopenredl/
+    python -m pip install ./pyopenredl/
     ```
 
 5. Open the script file **real_time_plot.py** and configure it as required. After modifying it, **save the file**!
@@ -82,7 +82,7 @@ The data received is printed in the terminal where the script is executed, and c
 (Optional Interaction)
 If you want to:<br/>
 O7. **add a note to the log file** just write it in the textbox at the bottom of the plots and type "enter".<br/>
-O8. **restart** the plot as a new one, press the datalogger restart button.
+O8. **restart** the plot as a new one, press the data logger restart button.
 
 
 #### 4.3 Other Useful Instructions
