@@ -74,7 +74,6 @@ winter_solar_cell_profile = {
     "amount": 10 * 60,  # Amount: how many units should be kept in the plot
     "columns_to_plot": [
         # H<datetime,DIFF1_mean[mV],DIFF2_mean[mV],DIFF3_mean[mV],notes>
-        [
             [1],  # V
             [2],  # I
             [3],  # G?
