@@ -79,7 +79,6 @@ winter_solar_cell_profile = {
             [3],  # G?
             [{"x": 1, "y": [2], "linestyle": "none"}],
         ]
-    ],
 }
 
 winter_storage_battery_profile = {
