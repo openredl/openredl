@@ -22,13 +22,18 @@ if __name__ == "__main__":
     ##############################################################################
     ## Files to read
     # (with the format [file_marker]YYMMDD[file_extension], e.g. M240726.TXT)
+    # (OPTIONAL) If you execute from an IDE that sets a path, change to the
+    # directory where the data folder is, else write the data folder with
+    # absolute path
+    import os
+    os.chdir(r"/Documents/")
     dir_path = "data/"
     # offset to convert datetime from measurements
     time_correction_hours = 0
     time_correction_seconds = 0
     # Date filter (after correction) If not given, a default value is be used
     # format '%Y/%m/%d %H:%M:%S' e.g. "2024/09/26 12:50:00"
-    t_start = "2025/11/07 00:00:00"
+    #t_start = "2025/11/06 00:00:00"
     #t_end = "2024/7/28 00:00:00"
 
     # Columns to select. Empty array will select all columns in data
@@ -57,8 +62,12 @@ if __name__ == "__main__":
                           )
 
     # Use this pandas dataframe for further analysis.
-    # e.g. you can save it as a csv or pickle file
     print(df)
+    # e.g. you can save it as a csv or pickle file
+    # df.to_csv("selected_data.csv", index=True)
+    # import pickle
+    # with open("selected_data.pkl", "wb") as file:
+    #     pickle.dump(df, file)
     #######################################################################
     # Example Resampling
     #######################################################################

@@ -69,6 +69,13 @@ default_profile = {
     "columns_to_plot": [[1], [2], [3], [4]],  # Which columns will be plotted per axis
 }
 
+default_name_profile = {
+    # H<datetime,DIFF1_mean[mV],DIFF2_mean[mV],DIFF3_mean[mV],DIFF4_mean[mV],notes>
+    "unit": "seconds",  # Unit: points or seconds
+    "amount": 5 * 60,  # Amount: how many units should be kept in the plot
+    "columns_to_plot": [["DIFF1_mean[mV]"], ["DIFF2_mean[mV]"], [3], [4]],  # Which columns will be plotted per axis
+}
+
 winter_solar_cell_profile = {
     "unit": "seconds",  # Unit: points or seconds
     "amount": 10 * 60,  # Amount: how many units should be kept in the plot
