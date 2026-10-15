@@ -1,9 +1,9 @@
-//before committing, test:
-//- if sample max and min are working correctly for diff channels (changed from float to int)
-//- if size of channels objects can still be reduced, to add a 3rd phase
-
-#define FIRMWARE_DESCRIPTION "Continuous sampling of 4 differential channels, "\
-                             "storing at 2 seconds interval."
+#define FIRMWARE_DESCRIPTION "Winter Lab - Solar Cell. "\
+                             "Continuous sampling of 3 differential channels: "\
+                             "DIFF1: V, "\
+                             "DIFF2: I, "\
+                             "DIFF3: T with PT100. "\
+                             "Storing mean value at ~0.1 second interval."
 
 #include "datalogger_config.h"
 
@@ -14,7 +14,7 @@ void setup() {
   format_log = TIMESERIES; // TIMESERIES or JSON
   // storage_interval_s: Default 10 (s), minimum ~0.1(s)
   // below 1s has lower time precision.
-  storage_interval_s = 2; 
+  storage_interval_s = 0.1; //Really fast sampling to get better IV curve
 
 //##############################################################################
 // CONFIGURATION OF ANALOG CHANNELS
@@ -45,12 +45,10 @@ void setup() {
 //------------------|----------|------------|-------------------
 //#### GAIN (Range of measurements inputs) ####
 
-diff1.gain = ADS1115_PGA_4P096;
-diff2.gain = ADS1115_PGA_4P096;
-diff3.gain = ADS1115_PGA_4P096;
-diff4.gain = ADS1115_PGA_4P096;
-//diff5.gain = ADS1115_PGA_6P144;
-//diff6.gain = ADS1115_PGA_6P144;
+diff1.gain = ADS1115_PGA_1P024;
+diff2.gain = ADS1115_PGA_0P256;
+diff3.gain = ADS1115_PGA_0P256;
+
 
 //#### Multiplication factor (Sensor calibration factor) ####
 //todo: fix not working properly if not decimals
@@ -59,23 +57,17 @@ diff4.gain = ADS1115_PGA_4P096;
 //diff1.mult_factor = 1.;
 //diff2.mult_factor = 1.;
 //diff3.mult_factor = 1.;
-//diff4.mult_factor = 1.;
-//diff5.mult_factor = 1.;
-//diff6.mult_factor = 1.;
 
 //#### OFFSET (Offset to add, should be in the final calculation units e.g. °C, V. mV) ####
 //diff1.offset_unit = 0.;
 //diff2.offset_unit = 0.;
 //diff3.offset_unit = 0.;
-//diff4.offset_unit = 0.;
-//diff5.offset_unit = 0.;
-//diff6.offset_unit = 0.;
+
 //##############################################################################
 
   init_dl(); // initialize the DL routines and parameters
  
 }
-
 
 //#############################################################################
 // Samples to be taken in each loop
@@ -88,17 +80,14 @@ void samples_to_take(){
 // NOT REQUIRED FOR CHANNELS BEING MEASSURED AS PHASES
 // ##################################################
 //    [channel].get_continuous_sample([sample_window_cycles],[grid_frequency]);
-    diff1.get_continuous_sample();
-    diff2.get_continuous_sample();
-    diff3.get_continuous_sample();        
-    diff4.get_continuous_sample();
-    //diff5.get_continuous_sample();
-    //diff6.get_continuous_sample();
+    //Fast sampling to get more values per second
+    diff1.get_continuous_sample(1,50);
+    diff2.get_continuous_sample(1,50);
+    diff3.get_continuous_sample(1,50);        
 
 //#############################################################################
 
 }
-
 
 
 //#############################################################################
@@ -114,34 +103,7 @@ void to_log_content(){
 //#############################################################################
 // Log for differential channels
 //#############################################################################
-    add_to_log(F("DIFF1_mean"), F("mV"), diff1.mean_sample_unit(),decimal_digits);
-//    add_to_log(F("DIFF1_rms"), F("mV"), diff1.rms_sample_unit(),decimal_digits);   
-//    add_to_log(F("DIFF1_min"), F("mV"), diff1.min_sample_unit(),decimal_digits);       
-//    add_to_log(F("DIFF1_max"), F("mV"), diff1.max_sample_unit(),decimal_digits);       
-// ##################################################
-    add_to_log(F("DIFF2_mean"), F("mV"), diff2.mean_sample_unit(),decimal_digits);
-//    add_to_log(F("DIFF2_rms"), F("mV"), diff2.rms_sample_unit(),decimal_digits);   
-//    add_to_log(F("DIFF2_min"), F("mV"), diff2.min_sample_unit(),decimal_digits);       
-//    add_to_log(F("DIFF2_max"), F("mV"), diff2.max_sample_unit(),decimal_digits);       
-// ##################################################
-    add_to_log(F("DIFF3_mean"), F("mV"), diff3.mean_sample_unit(),decimal_digits);
-//    add_to_log(F("DIFF3_rms"), F("mV"), diff3.rms_sample_unit(),decimal_digits);   
-//    add_to_log(F("DIFF3_min"), F("mV"), diff3.min_sample_unit(),decimal_digits);       
-//    add_to_log(F("DIFF3_max"), F("mV"), diff3.max_sample_unit(),decimal_digits);       
-// ##################################################
-    add_to_log(F("DIFF4_mean"), F("mV"), diff4.mean_sample_unit(),decimal_digits);
-//    add_to_log(F("DIFF4_rms"), F("mV"), diff4.rms_sample_unit(),decimal_digits);   
-//    add_to_log(F("DIFF4_min"), F("mV"), diff4.min_sample_unit(),decimal_digits);       
-//    add_to_log(F("DIFF4_max"), F("mV"), diff4.max_sample_unit(),decimal_digits);       
-// ##################################################
-//    add_to_log(F("DIFF5_mean"), F("mV"), diff5.mean_sample_unit(),decimal_digits);
-//    add_to_log(F("DIFF5_rms"), F("mV"), diff5.rms_sample_unit(),decimal_digits);   
-//    add_to_log(F("DIFF5_min"), F("mV"), diff5.min_sample_unit(),decimal_digits);       
-//    add_to_log(F("DIFF5_max"), F("mV"), diff5.max_sample_unit(),decimal_digits);       
-// ##################################################
-//    add_to_log(F("DIFF6_mean"), F("mV"), diff6.mean_sample_unit(),decimal_digits);
-//    add_to_log(F("DIFF6_rms"), F("mV"), diff6.rms_sample_unit(),decimal_digits);   
-//    add_to_log(F("DIFF6_min"), F("mV"), diff6.min_sample_unit(),decimal_digits);       
-//    add_to_log(F("DIFF6_max"), F("mV"), diff6.max_sample_unit(),decimal_digits);        
-
+    add_to_log(F("V"), F("mV"), diff1.mean_sample_unit(),decimal_digits);
+    add_to_log(F("I"), F("mV"), diff2.mean_sample_unit(),decimal_digits);
+    add_to_log(F("T"), F("mV"), diff3.mean_sample_unit(),decimal_digits);
 }
