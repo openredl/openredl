@@ -104,6 +104,6 @@ void to_log_content(){
 // Log for differential channels
 //#############################################################################
     add_to_log(F("V"), F("mV"), diff1.mean_sample_unit(),decimal_digits);
-    add_to_log(F("I"), F("mV"), diff2.mean_sample_unit(),decimal_digits);
+    add_to_log(F("I"), F("mV"), diff2.mean_sample_unit(),4);
     add_to_log(F("T"), F("mV"), diff3.mean_sample_unit(),decimal_digits);
 }

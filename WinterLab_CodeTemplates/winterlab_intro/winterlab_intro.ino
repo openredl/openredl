@@ -6,7 +6,7 @@
                              "DIFF1: V, "\
                              "DIFF2: I, "\
                              "DIFF3: T, "\
-                             "Storing mean value at 2 seconds interval."
+                             "Storing mean value at 1 seconds interval."
 
 #include "datalogger_config.h"
 
@@ -16,7 +16,7 @@ void setup() {
   format_log = TIMESERIES; // TIMESERIES or JSON
   // storage_interval_s: Default 10 (s), minimum ~0.1(s)
   // below 1s has lower time precision.
-  storage_interval_s = 2; 
+  storage_interval_s = 1; 
 
 //##############################################################################
 // CONFIGURATION OF ANALOG CHANNELS
@@ -101,7 +101,7 @@ void to_log_content(){
 // Log for differential channels
 //#############################################################################
     add_to_log(F("V"), F("mV"), diff1.mean_sample_unit(),decimal_digits);
-    add_to_log(F("I"), F("mV"), diff2.mean_sample_unit(),decimal_digits);
+    add_to_log(F("I"), F("mV"), diff2.mean_sample_unit(),4);
     add_to_log(F("T"), F("mV"), diff3.mean_sample_unit(),decimal_digits);
 
 }
