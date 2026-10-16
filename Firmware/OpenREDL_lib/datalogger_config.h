@@ -294,7 +294,7 @@ void print_log(int log_num){
 void handle_serial_input(){
     String input = Serial.readStringUntil('\n');
 
-    // store note receied for the log
+    // store note received for the log
     if (input.startsWith("N:")){
         Serial.print(F("I<NOTE: "));
         Serial.print(input.substring(2));
@@ -304,6 +304,11 @@ void handle_serial_input(){
         add_to_log(F("I<NOTE: "));
         add_to_log(input.substring(2, input.length()));
         add_to_log(F(">\n"));
+    }
+    else if (input.startsWith(":PAUSE")){
+        Serial.println(F("[INFO] Received 10s PAUSE order."));
+        Serial.println(F("[INFO] Remove SDCARD safely."));
+        delay(10000);
     }
 }
 

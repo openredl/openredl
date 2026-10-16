@@ -6,7 +6,7 @@
                              "DIFF1: V, "\
                              "DIFF2: I, "\
                              "DIFF3: T, "\
-                             "Storing mean value at 1 seconds interval."
+                             "Storing mean value at 1 second interval."
 
 #include "datalogger_config.h"
 

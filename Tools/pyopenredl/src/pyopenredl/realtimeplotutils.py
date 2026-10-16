@@ -132,7 +132,12 @@ class SerialDL:
 
     def submitnote(self, expression):
         """Submit note to data Logger via serial port interface"""
-        if self.text_box.text != "" :
+        if self.text_box.text.upper() == ":PAUSE" :
+            print(f"Order sent: {expression}", flush = True)
+            self.text_box.set_val("")
+            note = expression.upper() + "\n"
+            self.ser.write(note.encode('utf-8'))
+        elif self.text_box.text != "" :
             print(f"Note sent: {expression}", flush = True)
             self.text_box.set_val("")
             note = "N:" + expression + "\n"
@@ -177,8 +182,9 @@ class SerialDL:
                                                
 
             #axbox = self.fig.add_axes([0.1, 0.05, 0.8, 0.075])
-            self.axbox = self.fig.add_axes([0.15, 0.01, 0.7, 0.075])
-            self.text_box = TextBox(self.axbox, "Add note", textalignment="left")
+            #self.axbox = self.fig.add_axes([0.15, 0.01, 0.7, 0.075])
+            self.axbox = self.fig.add_axes([0.45, 0.01, 0.45, 0.075])
+            self.text_box = TextBox(self.axbox, "Add note (:PAUSE to remove SDCARD)", textalignment="left")
             self.text_box.on_submit(self.submitnote)
             #bbox = self.fig.get_window_extent().transformed(self.fig.dpi_scale_trans.inverted())
             #self.width, self.height = bbox.width*self.fig.dpi, bbox.height*self.fig.dpi
