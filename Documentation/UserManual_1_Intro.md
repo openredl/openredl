@@ -35,17 +35,21 @@ Follow the next steps to prepare your computer to use the DLs:
 3. Install the Arduino IDE libraries from the Firmware folder. Upload one by one (OpenREDL_lib, RTClib, I2Cdev and ADS1115) to the Arduino IDE: 
 >Arduino IDE > Sketch > Include Library > Add .ZIP Library.
 4. In case you will monitor in real time with the Python Script, create the required environment s specified in [4. Real-Time Plotting](UserManual_4_RealTimePlotting.md)
+
 conda create -n openredl-env matplotlib pandas pyserial
 conda activate openredl-env
 
 Update the path to your current path location.
+
 e.g. if cloned:
 python -m pip install ./openredl/Tools/pyopenredl/
+
 e.g. if downloaded:
 python -m pip install ./openredl-main/Tools/pyopenredl/
 
 5. You can find script examples in the folder WinterLab_CodeTemplates.
 
+ATTENTION: To remove safely the SDCard, you can write :PAUSE in the real_time_plot_script. 
 
 ### b. Configuration
 To take measurements, the DLs execute a script (its firmware, which is an .ino file programmed in the ArduinoIDE) in a loop. The script runs in the DL microprocessor, inside an Arduino UNO.
