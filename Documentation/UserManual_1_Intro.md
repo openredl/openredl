@@ -40,7 +40,7 @@ Follow the next steps to prepare your computer to use the DLs:
     conda activate openredl-env
 ```
 
-Update the path to your current path location.
+5. Update the path to your current path location and install pyopenredl.
 
 e.g. if cloned:
 ```console
@@ -52,7 +52,7 @@ e.g. if downloaded:
 python -m pip install ./openredl-main/Tools/pyopenredl/
 ```
 
-5. You can find script examples in the folder ***WinterLab_CodeTemplates***.
+6. You can find script examples in the folder ***WinterLab_CodeTemplates***.
 
 ***ATTENTION***: To remove safely the SDCard, you can write :PAUSE in the real_time_plot_script note area.
 This is specially important for the solar cell experiment, as it stores continuously.
