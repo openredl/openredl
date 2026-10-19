@@ -31,10 +31,20 @@ The operation flow of the DLs can be summarized in the following steps:
 Follow the next steps to prepare your computer to use the DLs:
 
 1. Install Arduino IDE. [You can download it from here.](https://www.arduino.cc/en/software)
-2. Make a copy of the repository on your computer.
-3. Install the required arduino libraries. The simplest method is to use the Libraries from the Firmware folder in the repository. Then upload each of them (OpenREDL_lib, RTClib, I2Cdev and ADS1115) to the Arduino IDE: 
+2. Make a copy of the repository on your computer (e.g. git clone https://github.com/openredl/openredl.git).
+3. Install the Arduino IDE libraries from the Firmware folder. Upload one by one (OpenREDL_lib, RTClib, I2Cdev and ADS1115) to the Arduino IDE: 
 >Arduino IDE > Sketch > Include Library > Add .ZIP Library.
 4. In case you will monitor in real time with the Python Script, create the required environment s specified in [4. Real-Time Plotting](UserManual_4_RealTimePlotting.md)
+conda create -n openredl-env matplotlib pandas pyserial
+conda activate openredl-env
+
+Update the path to your current path location.
+e.g. if cloned:
+python -m pip install ./openredl/Tools/pyopenredl/
+e.g. if downloaded:
+python -m pip install ./openredl-main/Tools/pyopenredl/
+
+5. You can find script examples in the folder WinterLab_CodeTemplates.
 
 
 ### b. Configuration
