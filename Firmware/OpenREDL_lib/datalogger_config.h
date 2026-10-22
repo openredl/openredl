@@ -77,6 +77,7 @@ const PROGMEM uint8_t ads_rate = ADS1115_RATE_860;
 // storage_interval_s : how often should the data be sent to logs
 // 0 for no data storage, min ~0.1s (depending on data sampled and stored)
 float storage_interval_s = 10;
+bool sample_active = true; // to enable start and stop via serial port
 
 //String file_n_prefix = "dl_data";
 String file_n = "dl_data.txt";
@@ -307,9 +308,19 @@ void handle_serial_input(){
     }
     else if (input.startsWith(":PAUSE")){
         Serial.println(F("[INFO] Received 10s PAUSE order."));
-        Serial.println(F("[INFO] Remove SDCARD safely."));
+        Serial.println(F("[INFO] You can remove SDCARD safely."));
+        sample_active = true;
         delay(10000);
     }
+    else if (input.startsWith(":STOP")){
+        Serial.println(F("[INFO] Received :STOP order. Send :START to continue."));
+        Serial.println(F("[INFO] You can remove SDCARD safely."));
+        sample_active = false;
+    }
+    else if (input.startsWith(":START")){
+        Serial.println(F("[INFO] Received :START order."));
+        sample_active = true;
+    }    
 }
 
 
@@ -596,5 +607,9 @@ void loop_dl() {
 
 //Loop function runs continuously
 void loop() {
-  loop_dl();
+  if (sample_active) loop_dl();
+  else {
+      delay(100);
+      if (Serial.available()) handle_serial_input();
+  }
 }
