@@ -55,7 +55,7 @@ diff3.gain = ADS1115_PGA_0P256;
 // Callibration for each input channel. Value_unit = (mult_factor x VoltageMeasured) + offset
 
 //diff1.mult_factor = 1.;
-float R_shunt = 0.04917; //Ohms, or 1A - 49.17 Ohms
+float R_shunt = 0.04917; //Ohms, or 1A - 49.17 mV
 diff2.mult_factor = 1./R_shunt;
 //diff3.mult_factor = 1.;
 
