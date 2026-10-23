@@ -37,6 +37,7 @@ class SerialDL:
         self.stop = False
         self.filename = 'data.csv'
         self.headers_filename = "headers.csv"
+        self.log_filename = 'openredl_log.csv'
         self.ani = None
         self.last_label_on=True
         print(f'\n{"#"*65}\n{"#"*20} Datalogger Plotting Started! {"#"*20}\n{"#"*65}')
@@ -99,6 +100,13 @@ class SerialDL:
             #print('New line', line)
             try:
                 string = line.decode("utf-8").replace('\r','')
+               
+                # Testing storing all logs
+                try:
+                    with open(self.log_filename, "a") as f:
+                        f.write(string)
+                except: pass
+                
                 if string.startswith('M<') or string.startswith('M,'):
                     string = string.replace('M<', "M,")
                     string = string.replace('>', "")
