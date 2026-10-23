@@ -55,7 +55,8 @@ diff3.gain = ADS1115_PGA_0P256;
 // Callibration for each input channel. Value_unit = (mult_factor x VoltageMeasured) + offset
 
 //diff1.mult_factor = 1.;
-//diff2.mult_factor = 1.;
+float R_shunt = 0.04917; //Ohms, or 1A - 49.17 Ohms
+diff2.mult_factor = 1./R_shunt;
 //diff3.mult_factor = 1.;
 
 //#### OFFSET (Offset to add, should be in the final calculation units e.g. °C, V. mV) ####
@@ -104,6 +105,6 @@ void to_log_content(){
 // Log for differential channels
 //#############################################################################
     add_to_log(F("V"), F("mV"), diff1.mean_sample_unit(),decimal_digits);
-    add_to_log(F("I"), F("mV"), diff2.mean_sample_unit(),4);
+    add_to_log(F("I"), F("mA"), diff2.mean_sample_unit(),4);
     add_to_log(F("T"), F("mV"), diff3.mean_sample_unit(),decimal_digits);
 }
