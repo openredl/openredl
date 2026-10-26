@@ -35,7 +35,7 @@ Only done the first time. Follow the next steps to prepare your computer:
 cd Documents\Labs
 ```
 
-1. Clone the github openREDL repository in your computer. 
+1. Clone the openREDL repository. 
 ```console
 git clone https://github.com/openredl/openredl.git
 ```
@@ -47,7 +47,7 @@ conda create -n openredl-env matplotlib pandas pyserial
 conda activate openredl-env
 ```
 
-3. Install the _pyopenredl_ library from the cloned folder:
+3. Install the _pyopenredl_ library from the cloned folder.
 ```console
 python -m pip install ./openredl/Tools/pyopenredl/
 ```
@@ -60,24 +60,25 @@ python -m pip install ./openredl/Tools/pyopenredl/
 
 
 6. See the example script in the folder ***WinterLab_CodeTemplates***.
-There are 2 files in each folder, an .ino file to program the data logger and a .py file for real time plotting..
+There are 2 files in each folder, an .ino file to program the data logger and a .py file for real time plotting.
 
-### 6.1 *To Program the data logger*   
+#### 6.1 *To Program the data logger*   
 1. Open the file Firmware > [your_firmware].ino with Arduino IDE.
 2. Adapt the script as required.
 3. In Menu Tools > Board select Arduino Uno.
 4. In Menu Tools > Port select the port that has the Arduino Uno connected.
-5. In Menu Sketch> Upload (Or click in the Upload button – an arrow to the right in Menu).
+5. In Menu Sketch> Upload (Or click in the Upload button – an arrow to the right in Menu). 
+
 [See full details in 3. Firmware](UserManual_3_Firmware.md).
 
-### 6.2 *To Plot in Real Time*
+#### 6.2 *To Plot in Real Time*
 The real_time_plot_[experiment_name].py file is prepared to plot what is required for each experiment. It is executed from a Terminal (e.g. Miniforge Prompt) as in the example below. *The folder and file names are different for each experiment*. 
 
-Go to the right folder:
+Activate the environment:
 ```console
 conda activate openredl-env
 ```
-Activate the environment:
+Go to the right folder:
 ```console
 cd Documents/Labs/WinterLab_CodeTemplates/winterlab_intro/
 ```
