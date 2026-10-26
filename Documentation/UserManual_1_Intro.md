@@ -62,7 +62,7 @@ python -m pip install ./openredl/Tools/pyopenredl/
 6. See the example script in the folder ***WinterLab_CodeTemplates***.
 There are 2 files in each folder, an .ino file to program the data logger and a .py file for real time plotting.
 
-#### 6.1 *To Program the data logger*   
+## b. To Program the data logger   
 1. Open the file Firmware > [your_firmware].ino with Arduino IDE.
 2. Adapt the script as required.
 3. In Menu Tools > Board select Arduino Uno.
@@ -71,7 +71,7 @@ There are 2 files in each folder, an .ino file to program the data logger and a 
 
 [See full details in 3. Firmware](UserManual_3_Firmware.md).
 
-#### 6.2 *To Plot in Real Time*
+## c. To Plot in Real Time
 The real_time_plot_[experiment_name].py file is prepared to plot what is required for each experiment. It is executed from a Terminal (e.g. Miniforge Prompt) as in the example below. *The folder and file names are different for each experiment*. 
 
 Activate the environment:
@@ -88,22 +88,22 @@ python real_time_plot_winterlab_intro.py
 ```
 
 ***NOTES***: 
+a) The measurements plotted by the real time plot script are stored in the same script folder in the file openredl_log.csv
 
-a) To remove safely the SDCard, you can give an order in the real time plot comments area:
+b) To remove safely the SDCard, you can give an order in the real time plot comments area:
 Option 1:  write :PAUSE to get 10 seconds.
 Option 2: write :Start or :Stop to decide the break time by yourself.  
 
-b) You should always upload a firmware configuration to the data logger, as you do not know what the previous user did.
+c) You should always upload a firmware configuration to the data logger, as you do not know what the previous user did.
 
-#### d. Monitoring
-##### Stand Alone Monitoring
+d) Stand Alone Monitoring
 Connect the DL to a USB connector, such as a celphone charger. The measurements start and will be automatically stored in the SD-Card inserted in the back part of the datalogger. The measurements can be retrieved removing the card and copying the generated text files.
 
-##### Real-Time Monitoring
+e) Real-Time Monitoring
 Connect the DL to a computer with the USB cable. The measurements start and will be automatically stored in the SD-Card. Real-Time Monitoring consist in reading the measurements in the moment they are taken. You can use any software that read the serial port where the arduino is connected. The default serial port Baud Rate is 115200 bps.
 Attention: The DL can only stablish communication with one program at a time. If it can not connect, pay attention that no other connection to the Arduino is active. 
 
-###### Monitor Values with Arduino IDE Serial Monitor
+f) Monitor Values with Arduino IDE Serial Monitor
 A simple option to see the measurements in real time is to use the Arduino IDE Serial Monitor. To use it, you need to:
  - 1. Open the Arduino IDE
  - 2. Click Menu Tools > Board select Arduino Uno
