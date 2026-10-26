@@ -41,7 +41,7 @@ git clone https://github.com/openredl/openredl.git
 ```
 If you do not use git, an alternative is to download the code from its github page, but the following instructions will be assume cloning with git.
 
-2. Create the python environment to plot in real time [ See more details in 4. Real-Time Plotting](UserManual_4_RealTimePlotting.md)
+2. Create the python environment to plot in real time. [See more details in 4. Real-Time Plotting](UserManual_4_RealTimePlotting.md).
 ```console
     conda create -n openredl-env matplotlib pandas pyserial
     conda activate openredl-env
@@ -52,24 +52,23 @@ If you do not use git, an alternative is to download the code from its github pa
 python -m pip install ./openredl/Tools/pyopenredl/
 ```
 
-4. [Download the Arduino Ide from here](https://www.arduino.cc/en/software) and install it. It is normal to accept the installation of many libraries while but pay atention to what you accept.
+4. [Download the Arduino Ide from here](https://www.arduino.cc/en/software) and install it. Although it is normal to get requests to install many libraries, pay atention to what you accept.
 
-5. Install the Arduino IDE libraries from the folder openredl\Firmware. You need to upload one by one as follows:
+5. Install the Arduino IDE libraries from the folder openredl\Firmware. You need to upload one by one (OpenREDL_lib, RTClib, I2Cdev and ADS1115) as follows:
 
 > Arduino IDE > Sketch > Include Library > Add .ZIP Library.
 
-Do it for OpenREDL_lib, RTClib, I2Cdev and ADS1115
 
 6. See the example script in the folder ***WinterLab_CodeTemplates***.
 There are 2 files in each folder:
-    - *To Program the data logger* [See full details in 3. Firmware](UserManual_3_Firmware.md):
- 1. Open the file Firmware > [your_firmware].ino with Arduino IDE.
- 2. Adapt the script as required.
- 3. In Menu Tools > Board select Arduino Uno.
- 4. In Menu Tools > Port select the port that has the Arduino Uno connected.
- 5. In Menu Sketch> Upload (Or click in the Upload button – an arrow to the right in Menu).
+- *To Program the data logger* [See full details in 3. Firmware](UserManual_3_Firmware.md):
+     1. Open the file Firmware > [your_firmware].ino with Arduino IDE.
+     2. Adapt the script as required.
+     3. In Menu Tools > Board select Arduino Uno.
+     4. In Menu Tools > Port select the port that has the Arduino Uno connected.
+     5. In Menu Sketch> Upload (Or click in the Upload button – an arrow to the right in Menu).
 
-    - *To Plot in Real Time*: the real_time_plot_[experiment_name].py file is prepared to plot what is required for each experiment. It is executed from a Terminal (e.g. Miniforge Prompt) as in the example below. *The folder and file names are different for each experiment*. 
+- *To Plot in Real Time*: the real_time_plot_[experiment_name].py file is prepared to plot what is required for each experiment. It is executed from a Terminal (e.g. Miniforge Prompt) as in the example below. *The folder and file names are different for each experiment*. 
 
 Go to the right folder:
 ```console
