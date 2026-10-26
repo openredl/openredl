@@ -9,7 +9,7 @@ Although these DLs do not aim to replace professional and industrial DL applicat
 
 The documentation consist in the following sections:
 
- - [1. Quick Start](#1-quick-guide) (See below) to start operating the DLs, either for real-time monitoring, plotting, or as stand along system.
+ - [1. Quick Start](#1-quick-start) (See below) to start operating the DLs, either for real-time monitoring, plotting, or as stand along system.
  - [2. Hardware](UserManual_2_Hardware.md) is a detail description of the _DataloggerArduino21_ and _DataloggerGBE23_ hardware.
  - [3. Firmware](UserManual_3_Firmware.md) is a detailed explanation of the DLs firmware, and Arduino IDE .ino file and how to configure it.
  - [4. Real-Time Plotting](UserManual_4_RealTimePlotting.md) explains the use and configuration of the Python script.
@@ -43,8 +43,8 @@ If you do not use git, an alternative is to download the code from its github pa
 
 2. Create the python environment to plot in real time. [See more details in 4. Real-Time Plotting](UserManual_4_RealTimePlotting.md).
 ```console
-    conda create -n openredl-env matplotlib pandas pyserial
-    conda activate openredl-env
+conda create -n openredl-env matplotlib pandas pyserial
+conda activate openredl-env
 ```
 
 3. Install the _pyopenredl_ library from the cloned folder:
