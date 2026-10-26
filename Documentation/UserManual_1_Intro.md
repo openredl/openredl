@@ -87,12 +87,13 @@ Execute the script:
 python real_time_plot_winterlab_intro.py
 ```
 
-***NOTES***: 
+## NOTES
+
 a) The measurements plotted by the real time plot script are stored in the same script folder in the file openredl_log.csv
 
 b) To remove safely the SDCard, you can give an order in the real time plot comments area:
-Option 1:  write :PAUSE to get 10 seconds.
-Option 2: write :Start or :Stop to decide the break time by yourself.  
+ - Option 1:  write :PAUSE to get 10 seconds.
+ - Option 2: write :Start or :Stop to decide the break time by yourself.  
 
 c) You should always upload a firmware configuration to the data logger, as you do not know what the previous user did.
 
@@ -101,15 +102,16 @@ Connect the DL to a USB connector, such as a celphone charger. The measurements 
 
 e) Real-Time Monitoring
 Connect the DL to a computer with the USB cable. The measurements start and will be automatically stored in the SD-Card. Real-Time Monitoring consist in reading the measurements in the moment they are taken. You can use any software that read the serial port where the arduino is connected. The default serial port Baud Rate is 115200 bps.
-Attention: The DL can only stablish communication with one program at a time. If it can not connect, pay attention that no other connection to the Arduino is active. 
+
+*Attention* The DL can only establish communication with one program at a time. If it can not connect, pay attention that no other connection to the Arduino is active. 
 
 f) Monitor Values with Arduino IDE Serial Monitor
 A simple option to see the measurements in real time is to use the Arduino IDE Serial Monitor. To use it, you need to:
- - 1. Open the Arduino IDE
- - 2. Click Menu Tools > Board select Arduino Uno
- - 3. Click In Menu Tools > Port select the port that has the Arduino Uno connected
- - 4. In Menu Tools > open the Serial Monitor
- - 5. In the Serial Monitor bottom right select 115200 Baud
+ 1. Open the Arduino IDE
+ 2. Click Menu Tools > Board select Arduino Uno
+ 3. Click In Menu Tools > Port select the port that has the Arduino Uno connected
+ 4. In Menu Tools > open the Serial Monitor
+ 5. In the Serial Monitor bottom right select 115200 Baud
 
 
 
