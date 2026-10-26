@@ -60,20 +60,18 @@ python -m pip install ./openredl/Tools/pyopenredl/
 
 
 6. See the example script in the folder ***WinterLab_CodeTemplates***.
-There are 2 files in each folder.
+There are 2 files in each folder, an .ino file to program the data logger and a .py file for real time plotting..
 
-    6.1 *To Program the data logger*
-    
-    1. Open the file Firmware > [your_firmware].ino with Arduino IDE.
-    2. Adapt the script as required.
-    3. In Menu Tools > Board select Arduino Uno.
-    4. In Menu Tools > Port select the port that has the Arduino Uno connected.
-    5. In Menu Sketch> Upload (Or click in the Upload button – an arrow to the right in Menu).
-    [See full details in 3. Firmware](UserManual_3_Firmware.md).
+## 6.1 *To Program the data logger*   
+1. Open the file Firmware > [your_firmware].ino with Arduino IDE.
+2. Adapt the script as required.
+3. In Menu Tools > Board select Arduino Uno.
+4. In Menu Tools > Port select the port that has the Arduino Uno connected.
+5. In Menu Sketch> Upload (Or click in the Upload button – an arrow to the right in Menu).
+[See full details in 3. Firmware](UserManual_3_Firmware.md).
 
-    6.2 *To Plot in Real Time*
-    
-    The real_time_plot_[experiment_name].py file is prepared to plot what is required for each experiment. It is executed from a Terminal (e.g. Miniforge Prompt) as in the example below. *The folder and file names are different for each experiment*. 
+## 6.2 *To Plot in Real Time*
+The real_time_plot_[experiment_name].py file is prepared to plot what is required for each experiment. It is executed from a Terminal (e.g. Miniforge Prompt) as in the example below. *The folder and file names are different for each experiment*. 
 
         Go to the right folder:
         ```console
