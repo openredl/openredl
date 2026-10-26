@@ -6,11 +6,11 @@ Once configured, it has to be uploaded to the Datalogger using the Arduino IDE s
 #### 3.1 Upload a script to the the DL 
 To upload the firmware of the DL, you need to follow these steps:
 
- - 1. Open the file Firmware > [your_firmware].ino with Arduino IDE.
- - 2. Adapt the script as required.
- - 3. In Menu Tools > Board select Arduino Uno.
- - 4. In Menu Tools > Port select the port that has the Arduino Uno connected.
- - 5. In Menu Sketch> Upload (Or click in the Upload button – an arrow to the right in Menu).
+ 1. Open the file Firmware > [your_firmware].ino with Arduino IDE.
+ 2. Adapt the script as required.
+ 3. In Menu Tools > Board select Arduino Uno.
+ 4. In Menu Tools > Port select the port that has the Arduino Uno connected.
+ 5. In Menu Sketch> Upload (Or click in the Upload button – an arrow to the right in Menu).
  
 #### 3.2 Firmware Adaptation
 You can find some application examples in:

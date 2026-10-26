@@ -17,58 +17,80 @@ The documentation consist in the following sections:
  - [6. Learning Tests](UserManual_6_LearningTests.md) follow these tests to train openREDL basic skills.
 
 
-## 1. Quick Guide
+## 1. Quick Start
 
-The _DataloggerArduino21_ and _DataloggerGBE23_ can be used as:
+The _openREDL-Arduino21_ and _openREDL-GBE23_ can be used as:
 - a Stand Alone Monitoring System, storing the measurements in the SD Card or as
-- a Real-Time Monitoring System, reading the measurements via the USB port, processing, storing or plotting the data as required (for example with the Arduino IDE serial monitoring or with the real_time_plot.py).
+- a Real-Time Monitoring System, reading the measurements via the USB port as text or plotting them with the python plotting tool (the real_time_plot.py script).
 
 The operation flow of the DLs can be summarized in the following steps:
 
-> a. Preparation > b. Configuration > c. Connection > d. Monitoring
+> a. Installation > b. Configuration > c. Connection > d. Monitoring
 
-### a. Preparation
-Follow the next steps to prepare your computer to use the DLs:
+### a. Installation
+Only done the first time. Follow the next steps to prepare your computer:
 
-1. Install Arduino IDE. [You can download it from here.](https://www.arduino.cc/en/software)
-2. Make a copy of the repository on your computer (e.g. git clone https://github.com/openredl/openredl.git).
-3. Install the Arduino IDE libraries from the Firmware folder. Upload one by one (OpenREDL_lib, RTClib, I2Cdev and ADS1115) to the Arduino IDE: 
->Arduino IDE > Sketch > Include Library > Add .ZIP Library.
-4. In case you will monitor in real time with the Python Script, create the required environment s specified in [4. Real-Time Plotting](UserManual_4_RealTimePlotting.md)
+0. Open a Terminal (e.g. Miniforge Prompt) and go to the folder where you want to store the repository, for example Documents\Labs.
+```console
+cd Documents\Labs
+```
+
+1. Clone the github openREDL repository in your computer. 
+```console
+git clone https://github.com/openredl/openredl.git
+```
+If you do not use git, an alternative is to download the code from its github page, but the following instructions will be assume cloning with git.
+
+2. Create the python environment to plot in real time [ See more details in 4. Real-Time Plotting](UserManual_4_RealTimePlotting.md)
 ```console
     conda create -n openredl-env matplotlib pandas pyserial
     conda activate openredl-env
 ```
 
-5. Update the path to your current path location and install pyopenredl.
-
-e.g. if cloned:
+3. Install the _pyopenredl_ library from the cloned folder:
 ```console
 python -m pip install ./openredl/Tools/pyopenredl/
 ```
 
-e.g. if downloaded:
+4. [Download the Arduino Ide from here](https://www.arduino.cc/en/software) and install it. It is normal to accept the installation of many libraries while but pay atention to what you accept.
+
+5. Install the Arduino IDE libraries from the folder openredl\Firmware. You need to upload one by one as follows:
+
+> Arduino IDE > Sketch > Include Library > Add .ZIP Library.
+
+Do it for OpenREDL_lib, RTClib, I2Cdev and ADS1115
+
+6. See the example script in the folder ***WinterLab_CodeTemplates***.
+There are 2 files in each folder:
+    - *To Program the data logger* [See full details in 3. Firmware](UserManual_3_Firmware.md):
+ 1. Open the file Firmware > [your_firmware].ino with Arduino IDE.
+ 2. Adapt the script as required.
+ 3. In Menu Tools > Board select Arduino Uno.
+ 4. In Menu Tools > Port select the port that has the Arduino Uno connected.
+ 5. In Menu Sketch> Upload (Or click in the Upload button – an arrow to the right in Menu).
+
+    - *To Plot in Real Time*: the real_time_plot_[experiment_name].py file is prepared to plot what is required for each experiment. It is executed from a Terminal (e.g. Miniforge Prompt) as in the example below. *The folder and file names are different for each experiment*. 
+
+Go to the right folder:
 ```console
-python -m pip install ./openredl-main/Tools/pyopenredl/
+conda activate openredl-env
+```
+Activate the environment:
+```console
+cd Documents/Labs/WinterLab_CodeTemplates/winterlab_intro/
+```
+Execute the script:
+```console
+python real_time_plot_winterlab_intro.py
 ```
 
-6. You can find script examples in the folder ***WinterLab_CodeTemplates***.
+***NOTES***: 
 
-***ATTENTION***: To remove safely the SDCard, you can write :PAUSE in the real_time_plot_script note area.
-This is specially important for the solar cell experiment, as it stores continuously.
+a) To remove safely the SDCard, you can give an order in the real time plot comments area:
+Option 1:  write :PAUSE to get 10 seconds.
+Option 2: write :Start or :Stop to decide the break time by yourself.  
 
-### b. Configuration
-To take measurements, the DLs execute a script (its firmware, which is an .ino file programmed in the ArduinoIDE) in a loop. The script runs in the DL microprocessor, inside an Arduino UNO.
-Once the firmware is configured to take the required measurements, it has to be uploaded to the DL using the Arduino IDE software. **If you do not know exactly which firmware configuration was uploaded to the Datalogger, you should always upload a new one**. If not, you risk to take measurements configured by an unknown configuration for measurements and logging. 
-
-5. With the Arduino IDE, open an ino file, for example a File > Examples > OpenREDL_lib > all_possibilities. Configure the parameters, samples to take and measurements to log as described in [3. Firmware](UserManual_3_Firmware.md)
-
-6. Define the configuration parameters you require: logging interval, sensors ranges, values to log, ac or dc measurements.
-
-### c. Connection
-7. (Dis)connect the noise filter inside the DLs as required, as shown in [Figure 3 of 2. Hardware](UserManual_2_Hardware.md).
-
-8. Connect the required inputs and outputs, as shown in [Figure 1 of 2. Hardware](UserManual_2_Hardware.md).
+b) You should always upload a firmware configuration to the data logger, as you do not know what the previous user did.
 
 #### d. Monitoring
 ##### Stand Alone Monitoring
@@ -78,7 +100,7 @@ Connect the DL to a USB connector, such as a celphone charger. The measurements 
 Connect the DL to a computer with the USB cable. The measurements start and will be automatically stored in the SD-Card. Real-Time Monitoring consist in reading the measurements in the moment they are taken. You can use any software that read the serial port where the arduino is connected. The default serial port Baud Rate is 115200 bps.
 Attention: The DL can only stablish communication with one program at a time. If it can not connect, pay attention that no other connection to the Arduino is active. 
 
-###### With Arduino IDE Serial Monitor
+###### Monitor Values with Arduino IDE Serial Monitor
 A simple option to see the measurements in real time is to use the Arduino IDE Serial Monitor. To use it, you need to:
  - 1. Open the Arduino IDE
  - 2. Click Menu Tools > Board select Arduino Uno
@@ -86,7 +108,5 @@ A simple option to see the measurements in real time is to use the Arduino IDE S
  - 4. In Menu Tools > open the Serial Monitor
  - 5. In the Serial Monitor bottom right select 115200 Baud
 
-###### With the Python Script
-A Python script (or any other programming language) can read the serial port and plot it. In the Tools folder you can find a specially made script called real_time_plot.py. For details on how to use and configure it see [4. Real-Time Plotting](UserManual_4_RealTimePlotting.md).
 
 
