@@ -52,14 +52,14 @@ conda create -n openredl-env matplotlib pandas pyserial
 conda activate openredl-env
 ```
 
-3. Install the _pyopenredl_ library from the cloned folder.
+3. Install the _pyopenredl_ library from the repository folder.
 
-Option a: If you cloned the repository.
+Option a: If you cloned it.
 ```console
 python -m pip install ./openredl/Tools/pyopenredl/
 ```
 
-Option b: If you downloaded the ZIP file, verify if openredl-main is not 2 times in the path.
+Option b: If you downloaded it, verify the path, simetimes openredl-main is 2 times in it.
 ```console
 python -m pip install ./openredl-main/Tools/pyopenredl/
 ```
@@ -84,7 +84,7 @@ There are 2 files in each folder, an .ino file to program the data logger and a 
 [See full details in 3. Firmware](UserManual_3_Firmware.md).
 
 ## c. To Plot in Real Time
-The real_time_plot_[experiment_name].py file is prepared to plot what is required for each experiment. It is executed from a Terminal (e.g. Miniforge Prompt) as in the example below. *The folder and file names are different for each experiment*. 
+The *real_time_plot_[experiment_name].py* file is prepared to plot what is required for each experiment. It is executed from a Terminal (e.g. Miniforge Prompt) as in the example below. **The folder and file names are different for each experiment**. 
 
 Activate the environment:
 ```console
