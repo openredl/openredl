@@ -37,12 +37,13 @@ cd Documents\Labs
 ```
 
 1. Make a copy of the reporitory.
-Option 1: Clone the openREDL repository. 
+
+Option a: Clone the openREDL repository. 
 ```console
 git clone https://github.com/openredl/openredl.git
 ```
 
-Option 2: Download the repository from https://github.com/openredl/openredl.
+Option b: Download the repository from https://github.com/openredl/openredl.
 Click in Code > Download ZIP (Store it in the folder from step 1 and extract it there) 
 
 2. Create the python environment to plot in real time. [See more details in 4. Real-Time Plotting](UserManual_4_RealTimePlotting.md).
@@ -56,12 +57,13 @@ conda activate openredl-env
 ```
 
 3. Install the _pyopenredl_ library from the cloned folder.
-Option 1: If you cloned the repository.
+
+Option a: If you cloned the repository.
 ```console
 python -m pip install ./openredl/Tools/pyopenredl/
 ```
 
-Option 2: If you downloaded the ZIP file, verify if openredl-main is not 2 times in the path.
+Option b: If you downloaded the ZIP file, verify if openredl-main is not 2 times in the path.
 ```console
 python -m pip install ./openredl-main/Tools/pyopenredl/
 ```
@@ -117,8 +119,8 @@ a) The measurements plotted by the real time plot script are stored in the same 
 
 b) The Real Time Plot has in the bottom a text box where you can:
  - 1. Write notes to be stored in the log (e.g. Start experiment1).
- - 2. Write :PAUSE to get 10 seconds (You can use it to remove safely the SDCard).
- - 3. write :Start or :Stop to decide the break time by yourself (You can use it to remove safely the SDCard).
+ - 2. Write **:PAUSE** to get 10 seconds (You can use it to remove safely the SDCard).
+ - 3. Write **:Start** or **:Stop** to decide the break time by yourself (You can use it to remove safely the SDCard).
 
 c) Always upload a firmware configuration to the data logger. You do not know what the previous user programmed it for.
 
