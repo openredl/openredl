@@ -38,12 +38,13 @@ cd Documents\Labs
 
 1. Make a copy of the reporitory.
 
-    Option A: Clone the openREDL repository. 
+Option A: Clone the openREDL repository. 
 ```console
 git clone https://github.com/openredl/openredl.git
 ```
 
-    Option B: Download the repository from https://github.com/openredl/openredl.
+Option B: Download the repository from https://github.com/openredl/openredl.
+    
 Click in Code > Download ZIP (Store it in the folder from step 1 and extract it there) 
 
 2. Create the python environment to plot in real time. [See more details in 4. Real-Time Plotting](UserManual_4_RealTimePlotting.md).
@@ -58,12 +59,13 @@ conda activate openredl-env
 
 3. Install the _pyopenredl_ library from the repository folder.
 
-    Option A: If you cloned it.
+Option A: If you cloned it.
 ```console
 python -m pip install ./openredl/Tools/pyopenredl/
 ```
 
-    Option B: If you downloaded it, verify the path, simetimes openredl-main is 2 times in it.
+Option B: If you downloaded it, verify the path, some times openredl-main is 2 times in it.
+    
 ```console
 python -m pip install ./openredl-main/Tools/pyopenredl/
 ```
