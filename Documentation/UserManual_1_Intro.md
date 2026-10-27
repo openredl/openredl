@@ -19,10 +19,6 @@ The documentation consist in the following sections:
 
 ## 1. Quick Start
 
-The _openREDL-Arduino21_ and _openREDL-GBE23_ can be used as:
-- a Stand Alone Monitoring System, storing the measurements in the SD Card or as
-- a Real-Time Monitoring System, reading the measurements via the USB port as text or plotting them with the python plotting tool (the real_time_plot.py script).
-
 The operation flow of the DLs can be summarized in the following steps:
 
 > a. Installation > b. Configuration > c. Connection > d. Monitoring
@@ -124,13 +120,19 @@ b) The Real Time Plot has in the bottom a text box where you can:
 
 c) Always upload a firmware configuration to the data logger. You do not know what the previous user programmed it for.
 
+
+The _openREDL-Arduino21_ and _openREDL-GBE23_ can be used as:
+- a Stand Alone Monitoring System, storing the measurements in the SD Card or as
+- a Real-Time Monitoring System, reading the measurements via the USB port as text or plotting them with .
+
+
 d) Stand Alone Monitoring
 Connect the DL to a USB connector, such as a celphone charger. The measurements start and will be automatically stored in the SD-Card inserted in the back part of the datalogger. The measurements can be retrieved removing the card and copying the generated text files.
 
 e) Real-Time Monitoring
-Connect the DL to a computer with the USB cable. The measurements start and will be automatically stored in the SD-Card. Real-Time Monitoring consist in reading the measurements in the moment they are taken. You can use any software that read the serial port where the arduino is connected. The default serial port Baud Rate is 115200 bps.
+Connect the DL to a computer with the USB cable. The measurements start and will be automatically stored in the SD-Card. Real-Time Monitoring consist in reading the measurements in the moment they are taken. Use the python plotting tool (the real_time_plot.py script), or the Arduino IDE serial Monitor at a Baud Rate of 115200 bps.
 
-*Attention* The DL can only establish communication with one program at a time. If it can not connect, pay attention that no other connection to the Arduino is active. 
+**Attention** The DL can only establish communication with one program at a time. If it can not connect, pay attention that no other connection to the Arduino is active. 
 
 f) Monitor Values with Arduino IDE Serial Monitor
 A simple option to see the measurements in real time is to use the Arduino IDE Serial Monitor. To use it, you need to:
