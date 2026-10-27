@@ -28,31 +28,45 @@ The operation flow of the DLs can be summarized in the following steps:
 > a. Installation > b. Configuration > c. Connection > d. Monitoring
 
 ### a. Installation
-Only done the first time. Follow the next steps to prepare your computer:
+**Only to be done the first time**. Follow the next steps to prepare your computer:
 
 0. Open a Terminal (e.g. Miniforge Prompt) and go to the folder where you want to store the repository, for example Documents\Labs.
+Tip: open the folder in the File Manager (Windows) or Finder (Mac), then right clic in top path and copy (Ctrl + C). 
 ```console
 cd Documents\Labs
 ```
 
-1. Clone the openREDL repository. 
+1. Make a copy of the reporitory.
+Option 1: Clone the openREDL repository. 
 ```console
 git clone https://github.com/openredl/openredl.git
 ```
-If you do not use git, an alternative is to download the code from its github page, but the following instructions will be assume cloning with git.
+
+Option 2: Download the repository from https://github.com/openredl/openredl.
+Click in Code > Download ZIP (Store it in the folder from step 1 and extract it there) 
 
 2. Create the python environment to plot in real time. [See more details in 4. Real-Time Plotting](UserManual_4_RealTimePlotting.md).
 ```console
 conda create -n openredl-env matplotlib pandas pyserial
+```
+
+2. 1 Activate the environment.
+```console
 conda activate openredl-env
 ```
 
 3. Install the _pyopenredl_ library from the cloned folder.
+Option 1: If you cloned the repository.
 ```console
 python -m pip install ./openredl/Tools/pyopenredl/
 ```
 
-4. [Download the Arduino Ide from here](https://www.arduino.cc/en/software) and install it. Although it is normal to get requests to install many libraries, pay atention to what you accept.
+Option 2: If you downloaded the ZIP file, verify if openredl-main is not 2 times in the path.
+```console
+python -m pip install ./openredl-main/Tools/pyopenredl/
+```
+
+4. [Download the Arduino IDE from here](https://www.arduino.cc/en/software) and install it. Although it is normal to get requests to install many libraries, pay attention to what you accept.
 
 5. Install the Arduino IDE libraries from the folder openredl\Firmware. You need to upload one by one (OpenREDL_lib, RTClib, I2Cdev and ADS1115) as follows:
 
@@ -82,20 +96,31 @@ Go to the right folder:
 ```console
 cd Documents/Labs/WinterLab_CodeTemplates/winterlab_intro/
 ```
-Execute the script:
+Execute the python plotting script:
 ```console
 python real_time_plot_winterlab_intro.py
 ```
+
+## d. Try the Winterlab_Intro Examples
+1. Connect the Solar cell to measure Voltage.
+2. Connect the Solar cell to measure Current with a shunt resistor. Insert the shunt resistor calibration value and change the channel Label.
+3. Connect the PT100/0 to the 1mA current source. Measure the Pt100/0 voltage.
+4. Explore the solar cell and solar collector scripts.
+
+**TIPs**
+- Validate the measurements with a multimeter.
+- Before connecting anything draw the circuit on a paper.
 
 ## NOTES
 
 a) The measurements plotted by the real time plot script are stored in the same script folder in the file openredl_log.csv
 
-b) To remove safely the SDCard, you can give an order in the real time plot comments area:
- - Option 1:  write :PAUSE to get 10 seconds.
- - Option 2: write :Start or :Stop to decide the break time by yourself.  
+b) The Real Time Plot has in the bottom a text box where you can:
+ - 1. Write notes to be stored in the log (e.g. Start experiment1).
+ - 2. Write :PAUSE to get 10 seconds (You can use it to remove safely the SDCard).
+ - 3. write :Start or :Stop to decide the break time by yourself (You can use it to remove safely the SDCard).
 
-c) You should always upload a firmware configuration to the data logger, as you do not know what the previous user did.
+c) Always upload a firmware configuration to the data logger. You do not know what the previous user programmed it for.
 
 d) Stand Alone Monitoring
 Connect the DL to a USB connector, such as a celphone charger. The measurements start and will be automatically stored in the SD-Card inserted in the back part of the datalogger. The measurements can be retrieved removing the card and copying the generated text files.
