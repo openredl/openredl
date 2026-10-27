@@ -18,12 +18,15 @@ The documentation consist in the following sections:
 
 -----
 -----
+
 ## 1. Quick Start
 
 The operation flow of the DLs can be summarized in the following steps:
 
 > a. Installation > b. Configuration > c. Connection > d. Monitoring
+
 -----
+
 ### a. Installation
 **Only to be done the first time**. Follow the next steps to prepare your computer:
 
@@ -73,7 +76,9 @@ python -m pip install ./openredl-main/Tools/pyopenredl/
 
 6. See the example script in the folder ***WinterLab_CodeTemplates***.
 There are 2 files in each folder, an .ino file to program the data logger and a .py file for real time plotting.
+
 -----
+
 ## b. To Program the data logger   
 1. Open the file Firmware > [your_firmware].ino with Arduino IDE.
 2. Adapt the script as required.
@@ -82,7 +87,9 @@ There are 2 files in each folder, an .ino file to program the data logger and a 
 5. In Menu Sketch> Upload (Or click in the Upload button – an arrow to the right in Menu). 
 
 [See full details in 3. Firmware](UserManual_3_Firmware.md).
+
 -----
+
 ## c. To Plot in Real Time
 The *real_time_plot_[experiment_name].py* file is prepared to plot what is required for each experiment. It is executed from a Terminal (e.g. Miniforge Prompt) as in the example below. **The folder and file names are different for each experiment**. 
 
@@ -98,6 +105,8 @@ Execute the python plotting script:
 ```console
 python real_time_plot_winterlab_intro.py
 ```
+
+-----
 
 ## d. Try the Winterlab_Intro Examples
 1. Connect the Solar cell to measure Voltage.
