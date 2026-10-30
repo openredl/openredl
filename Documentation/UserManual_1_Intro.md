@@ -30,22 +30,23 @@ The operation flow of the DLs can be summarized in the following steps:
 ### a. Installation
 **Only to be done the first time**. Follow the next steps to prepare your computer:
 
-0. Open a Terminal (e.g. Miniforge Prompt) and go to the folder where you want to store the repository, for example Documents\Labs.
-Tip: open the folder in the File Manager (Windows) or Finder (Mac), then right clic in top path and copy (Ctrl + C). 
+0. a. Open the File Manager (Windows) or Finder (Mac) and create a folder to store the Lab documents, for example Documents\Labs.
+b. Go into the Documents\Labs folder and copy its path: right click in the File Manager top bar and copy (Ctr + C). 
+c. Open a Terminal in which you can execute conda (e.g. Miniforge Prompt) and go to the path. For example
 ```console
-cd Documents\Labs
+cd [your_path]\Documents\Labs
 ```
 
-1. Make a copy of the reporitory.
+1. Make a copy of the repository.
 
-Option A: Clone the openREDL repository. 
+Option A: Clone the openREDL repository with git. 
 ```console
 git clone https://github.com/openredl/openredl.git
 ```
 
 Option B: Download the repository from https://github.com/openredl/openredl.
     
-Click in Code > Download ZIP (Store it in the folder from step 1 and extract it there) 
+Click in Code > Download ZIP (Store it in the Labs folder and extract it) 
 
 2. Create the python environment to plot in real time. [See more details in 4. Real-Time Plotting](UserManual_4_RealTimePlotting.md).
 ```console
@@ -68,6 +69,12 @@ Option B: If you downloaded it, verify the path, some times openredl-main is 2 t
     
 ```console
 python -m pip install ./openredl-main/Tools/pyopenredl/
+```
+
+or sometimes:
+
+```console
+python -m pip install .openredl-main/openredl-main/Tools/pyopenredl/
 ```
 
 4. [Download the Arduino IDE from here](https://www.arduino.cc/en/software) and install it. Although it is normal to get requests to install many libraries, pay attention to what you accept.
@@ -99,11 +106,11 @@ Activate the environment:
 ```console
 conda activate openredl-env
 ```
-Go to the right folder:
+Go to the right folder (Get the right path from the file manager):
 ```console
-cd Documents/Labs/WinterLab_CodeTemplates/winterlab_intro/
+cd WinterLab_CodeTemplates/winterlab_intro/
 ```
-Execute the python plotting script:
+Execute the python plotting script (Get the right file name from the file manager):
 ```console
 python real_time_plot_winterlab_intro.py
 ```
