@@ -30,10 +30,10 @@ The operation flow of the DLs can be summarized in the following steps:
 ### a. Installation
 **Only to be done the first time**. Follow the next steps to prepare your computer:
 
-The installation assumes that you have a working Python installation with Conda, such as Miniforge. If not, you do it from here:
+The installation assumes that you have a working Python installation with Conda, such as Miniforge. If not, **Install Miniforge** from here: https://github.com/conda-forge/miniforge#install
 
-**Install Miniforge**: https://github.com/conda-forge/miniforge#install
 Activate the option to enable Python from other programs. 
+
 
 0. Create a folder for the lab documents and open it in a Terminal.
 
