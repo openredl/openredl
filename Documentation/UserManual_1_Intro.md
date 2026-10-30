@@ -30,8 +30,17 @@ The operation flow of the DLs can be summarized in the following steps:
 ### a. Installation
 **Only to be done the first time**. Follow the next steps to prepare your computer:
 
-0. a. Open the File Manager (Windows) or Finder (Mac) and create a folder to store the Lab documents, for example Documents\Labs.
-b. Go into the Documents\Labs folder and copy its path: right click in the File Manager top bar and copy (Ctr + C). 
+The installation assumes that you have a working Python installation with Conda, such as Miniforge. If not, you do it from here:
+
+**Install Miniforge**: https://github.com/conda-forge/miniforge#install
+Activate the option to enable Python from other programs. 
+
+0. Create a folder for the lab documents and open it in a Terminal.
+
+a. Open the File Manager (Windows) or Finder (Mac) and create a folder to store the Lab documents, for example Documents\Labs.
+
+b. Go into the Documents\Labs folder and copy its path: right click in the File Manager top bar and copy (Ctr + C).
+
 c. Open a Terminal in which you can execute conda (e.g. Miniforge Prompt) and go to the path. For example
 ```console
 cd [your_path]\Documents\Labs
