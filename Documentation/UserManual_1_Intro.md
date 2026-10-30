@@ -27,10 +27,11 @@ The operation flow of the DLs can be summarized in the following steps:
 
 -----
 
+The installation assumes that you have a working Python installation with Conda, such as Miniforge. If not, **Install Miniforge** from here: https://github.com/conda-forge/miniforge#install
+
+
 ### a. Installation
 **Only to be done the first time**. Follow the next steps to prepare your computer:
-
-The installation assumes that you have a working Python installation with Conda, such as Miniforge. If not, **Install Miniforge** from here: https://github.com/conda-forge/miniforge#install
 
 Activate the option to enable Python from other programs. 
 
